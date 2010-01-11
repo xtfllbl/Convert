@@ -1429,7 +1429,6 @@ void MainWindow::convert2SEGY()
 /// 在正常道头取值的情况下的所有组合
 void MainWindow::convertStandard()
 {
-    qDebug()<<"in";
     flagConvertComplete=false;
     float temp;               //整个函数通用，非常重要
     float skipTemp;         //跳过一部分的数据的临时存放
@@ -1444,7 +1443,6 @@ void MainWindow::convertStandard()
     /// 有取道功能的情况下
     if(flagTraceScope==true)
     {
-        qDebug()<<"TraceScope";
         int number;
         for(number=0;number<leftNum.size();number++)
         {
@@ -3279,6 +3277,7 @@ void MainWindow::read3200()
     }
 }
 
+//400
 void MainWindow::read400()
 {
     read>>bh;
