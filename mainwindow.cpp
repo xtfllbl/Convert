@@ -1383,16 +1383,13 @@ void MainWindow::convert2SEGY()
 {
     flagConvertComplete=false;
     float temp;
-    bty.resize(3201);
     QProgressDialog progress(tr("Converting files..."), tr("Abort"), 0,count-1, this);
     progress.setWindowModality(Qt::WindowModal);
     progress.setMinimumDuration(1000);
     QMessageBox msgBox;
 
-    fOpen.seek(0);
-    read.readRawData(bty.data(),3200);       //写开头的3200
-    *(bty.data()+3200)='\0';
-    write.writeRawData(bty.data(),3200);
+    read3200();
+
     read>>bh;    //写400
     //qDebug()<<bh.hdt<<bh.dto<<bh.hns<<bh.nso;
     if(ui->radioIBM->isChecked())
@@ -1436,53 +1433,12 @@ void MainWindow::convertStandard()
     flagConvertComplete=false;
     float temp;               //整个函数通用，非常重要
     float skipTemp;         //跳过一部分的数据的临时存放
-    bty.resize(3201);       //切勿忘记开空间，后果不堪设想
 
-    // 3200
-    fOpen.seek(0);
-    read.readRawData(bty.data(),3200);
-    *(bty.data()+3200)='\0';
-    if(flagSU==false)
-    {
-        write.writeRawData(bty.data(),3200);
-    }
+    //3200
+    read3200();
+
     //400
-    read>>bh;
-    if(flagResample==true)
-    {
-        if(flagBHis0==false)
-        {
-            oriDt=bhTemp.hdt;
-            oriNs=bhTemp.hns;
-        }
-        else if(flagBHis0==true)
-        {
-            oriDt=thTemp.dt;
-            oriNs=thTemp.ns;
-        }
-        nowNs=oriDt*oriNs/nowDt;
-        bh.hdt=nowDt;       //将改动信息写入文件
-        bh.hns=nowNs;
-        if(flagAcResample==true)             //2.精确采样情况下重新写入信息
-        {
-            //现在的个数＊以前的采样间隔/现在的采样间隔
-            newTraceNum=newTraceNum*oriDt/nowDt;
-            bh.hns=newTraceNum;       /// bh也要写入，否则trace display无法正确显示
-        }
-        if(flagResampleChange==true)      //3.单纯和精确重采样结合情况下写入信息
-        {
-            bh.hns=allPointNum;
-        }
-    }
-    if(ui->radioIBM->isChecked())
-        bh.format=1;
-    else if(ui->radioIEEE->isChecked())
-        bh.format=5;
-    if(flagSU==false)
-    {
-        write<<bh;
-    }
-
+    read400();
 
     // 240+数据部分
     /// 有取道功能的情况下
@@ -1914,53 +1870,12 @@ void MainWindow::convertNonStandard()
     flagConvertComplete=false;
     float temp;         //整个函数通用，非常重要
     float skipTemp; //跳过一部分的数据的临时存放
-    bty.resize(3201);       //切勿忘记开空间，后果不堪设想
 
     // 3200
-    fOpen.seek(0);
-    read.readRawData(bty.data(),3200);
-    *(bty.data()+3200)='\0';
-    if(flagSU==false)
-    {
-        write.writeRawData(bty.data(),3200);
-    }
-    //400
-    read>>bh;
-    if(flagResample==true)
-    {
-        if(flagBHis0==false)
-        {
-            oriDt=bhTemp.hdt;
-            oriNs=bhTemp.hns;
-        }
-        else if(flagBHis0==true)
-        {
-            oriDt=thTemp.dt;
-            oriNs=thTemp.ns;
-        }
-        nowNs=oriDt*oriNs/nowDt;
+    read3200();
 
-        bh.hdt=nowDt;       //将改动信息写入文件
-        bh.hns=nowNs;
-        if(flagAcResample==true)             //2.精确采样情况下重新写入信息
-        {
-            //现在的个数＊以前的采样间隔/现在的采样间隔
-            newTraceNum=newTraceNum*oriDt/nowDt;
-            bh.hns=newTraceNum;       /// bh也要写入，否则trace display无法正确显示
-        }
-        if(flagResampleChange==true)      //3.单纯和精确重采样结合情况下写入信息
-        {
-            bh.hns=allPointNum;
-        }
-    }
-    if(ui->radioIBM->isChecked())
-        bh.format=1;
-    else if(ui->radioIEEE->isChecked())
-        bh.format=5;
-    if(flagSU==false)
-    {
-        write<<bh;
-    }
+    //400
+    read400();
     
     //240+数据
     /// 在有取道的情况下
@@ -2644,55 +2559,12 @@ void MainWindow::convertTraceScope()
 
     float temp;         //整个函数通用，非常重要
     float skipTemp;     //跳过一部分的数据的临时存放
-    bty.resize(3201);       //切勿忘记开空间，后果不堪设想
 
     // 3200
-    fOpen.seek(0);
-    read.readRawData(bty.data(),3200);
-    *(bty.data()+3200)='\0';
-    if(flagSU==false)
-    {
-        write.writeRawData(bty.data(),3200);
-    }
+    read3200();
 
     //400
-    read>>bh;
-    if(flagResample==true)
-    {
-        if(flagBHis0==false)
-        {
-            oriDt=bhTemp.hdt;
-            oriNs=bhTemp.hns;
-        }
-        else if(flagBHis0==true)
-        {
-            oriDt=thTemp.dt;
-            oriNs=thTemp.ns;
-        }
-        nowNs=oriDt*oriNs/nowDt;
-        bh.hdt=nowDt;                           //1.单纯重采样
-        bh.hns=nowNs;
-
-        if(flagAcResample==true)             //2.精确采样情况下重新写入信息
-        {
-            //现在的个数＊以前的采样间隔/现在的采样间隔
-            newTraceNum=newTraceNum*oriDt/nowDt;
-            bh.hns=newTraceNum;       /// bh也要写入，否则trace display无法正确显示
-        }
-        if(flagResampleChange==true)      //3.单纯和精确重采样结合情况下写入信息
-        {
-            bh.hns=allPointNum;
-        }
-
-    }
-    if(ui->radioIBM->isChecked())
-        bh.format=1;
-    else if(ui->radioIEEE->isChecked())
-        bh.format=5;
-    if(flagSU==false)
-    {
-        write<<bh;
-    }
+    read400();
 
     /// /////////////////////////////////////////////////////////////
     int number;
@@ -2880,51 +2752,13 @@ void MainWindow::convertResample()
     flagConvertComplete=false;
     QMessageBox m1;
 
-    bty.resize(3201);       //切勿忘记开空间，后果不堪设想
     float temp1;         //整个函数通用，非常重要
     float skipTemp;     //跳过一部分的数据的临时存放
     // 3200
-    fOpen.seek(0);
-    read.readRawData(bty.data(),3200);
-    *(bty.data()+3200)='\0';
-    if(flagSU==false)
-    {
-        write.writeRawData(bty.data(),3200);
-    }
-    read>>bh;    //写400,需要将修改的道头信息写入400＆240
-    if(flagBHis0==false)
-    {
-        oriDt=bhTemp.hdt;
-        oriNs=bhTemp.hns;
-    }
-    else if(flagBHis0==true)
-    {
-        oriDt=thTemp.dt;
-        oriNs=thTemp.ns;
-    }
-    nowNs=oriDt*oriNs/nowDt;    //更新修改采样间隔后的数据量
+    read3200();
 
-    bh.hdt=nowDt;                           //1.单纯的重采样写入信息
-    bh.hns=nowNs;
-    if(flagAcResample==true)             //2.精确采样情况下重新写入信息
-    {
-        //现在的个数＊以前的采样间隔/现在的采样间隔
-        newTraceNum=newTraceNum*oriDt/nowDt;
-        bh.hns=newTraceNum;       /// bh也要写入，否则trace display无法正确显示
-    }
-    if(flagResampleChange==true)      //3.单纯和精确重采样结合情况下写入信息
-    {
-        bh.hns=allPointNum;
-    }
-
-    if(ui->radioIBM->isChecked())
-        bh.format=1;
-    else if(ui->radioIEEE->isChecked())
-        bh.format=5;
-    if(flagSU==false)
-    {
-        write<<bh;
-    }
+    //400
+    read400();
 
     /// //////////////////////////////////////////
     int a;
@@ -3062,18 +2896,14 @@ void MainWindow::convertSkipTrace()
 {
     flagConvertComplete=false;
     float temp;
-    bty.resize(3201);
 
     QMessageBox msgBox;
 
-    fOpen.seek(0);
-    read.readRawData(bty.data(),3200);       //3200
-    *(bty.data()+3200)='\0';
-    if(flagSU==false)
-    {
-        write.writeRawData(bty.data(),3200);
-    }
-    read>>bh;    //400
+    //3200
+    read3200();
+
+    //400
+    read>>bh;
     if(ui->radioIBM->isChecked())
         bh.format=1;
     else if(ui->radioIEEE->isChecked())
@@ -3436,5 +3266,55 @@ void MainWindow::on_actionHelp_triggered()
     help->show();
 }
 
+//3200
+void MainWindow::read3200()
+{
+    bty.resize(3201);       //切勿忘记开空间，后果不堪设想
+    fOpen.seek(0);
+    read.readRawData(bty.data(),3200);
+    *(bty.data()+3200)='\0';
+    if(flagSU==false)
+    {
+        write.writeRawData(bty.data(),3200);
+    }
+}
 
+void MainWindow::read400()
+{
+    read>>bh;
+    if(flagResample==true)
+    {
+        if(flagBHis0==false)
+        {
+            oriDt=bhTemp.hdt;
+            oriNs=bhTemp.hns;
+        }
+        else if(flagBHis0==true)
+        {
+            oriDt=thTemp.dt;
+            oriNs=thTemp.ns;
+        }
+        nowNs=oriDt*oriNs/nowDt;
+        bh.hdt=nowDt;       //将改动信息写入文件
+        bh.hns=nowNs;
+        if(flagAcResample==true)             //2.精确采样情况下重新写入信息
+        {
+            //现在的个数＊以前的采样间隔/现在的采样间隔
+            newTraceNum=newTraceNum*oriDt/nowDt;
+            bh.hns=newTraceNum;       /// bh也要写入，否则trace display无法正确显示
+        }
+        if(flagResampleChange==true)      //3.单纯和精确重采样结合情况下写入信息
+        {
+            bh.hns=allPointNum;
+        }
+    }
+    if(ui->radioIBM->isChecked())
+        bh.format=1;
+    else if(ui->radioIEEE->isChecked())
+        bh.format=5;
+    if(flagSU==false)
+    {
+        write<<bh;
+    }
 
+}

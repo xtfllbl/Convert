@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading ui file 'help.ui'
 **
-** Created: Thu Jan 7 15:15:48 2010
-**      by: Qt User Interface Compiler version 4.5.1
+** Created: Mon Jan 11 11:32:39 2010
+**      by: Qt User Interface Compiler version 4.5.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 ********************************************************************************/
@@ -42,7 +42,7 @@ public:
             Help->setObjectName(QString::fromUtf8("Help"));
         Help->resize(266, 190);
         QIcon icon;
-        icon.addPixmap(QPixmap(QString::fromUtf8("images/Torchlight_help.png")), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8("images/Torchlight_help.png"), QSize(), QIcon::Normal, QIcon::Off);
         Help->setWindowIcon(icon);
         gridLayout = new QGridLayout(Help);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));

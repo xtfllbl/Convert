@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Thu Jan 7 15:15:48 2010
-**      by: Qt User Interface Compiler version 4.5.1
+** Created: Mon Jan 11 11:32:39 2010
+**      by: Qt User Interface Compiler version 4.5.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 ********************************************************************************/
@@ -179,22 +179,22 @@ public:
         MainWindow->setMinimumSize(QSize(600, 0));
         MainWindow->setMaximumSize(QSize(50000, 50000));
         QIcon icon;
-        icon.addPixmap(QPixmap(QString::fromUtf8("images/actions/gtk-sort-descending.png")), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8("images/actions/gtk-sort-descending.png"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
         actionOpen = new QAction(MainWindow);
         actionOpen->setObjectName(QString::fromUtf8("actionOpen"));
         QIcon icon1;
-        icon1.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/image/document-open.png")), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QString::fromUtf8(":/new/prefix1/image/document-open.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionOpen->setIcon(icon1);
         actionExit = new QAction(MainWindow);
         actionExit->setObjectName(QString::fromUtf8("actionExit"));
         QIcon icon2;
-        icon2.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/image/edit-delete.png")), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QString::fromUtf8(":/new/prefix1/image/edit-delete.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionExit->setIcon(icon2);
         actionHelp = new QAction(MainWindow);
         actionHelp->setObjectName(QString::fromUtf8("actionHelp"));
         QIcon icon3;
-        icon3.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/image/Torchlight_help.png")), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QString::fromUtf8(":/new/prefix1/image/Torchlight_help.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionHelp->setIcon(icon3);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
@@ -338,7 +338,7 @@ public:
         btnAD = new QPushButton(groupBox_3);
         btnAD->setObjectName(QString::fromUtf8("btnAD"));
         QIcon icon4;
-        icon4.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/image/go-next.png")), QIcon::Normal, QIcon::Off);
+        icon4.addFile(QString::fromUtf8(":/new/prefix1/image/go-next.png"), QSize(), QIcon::Normal, QIcon::Off);
         btnAD->setIcon(icon4);
         btnAD->setCheckable(true);
 
@@ -503,7 +503,7 @@ public:
         btnConvertTo->setObjectName(QString::fromUtf8("btnConvertTo"));
         btnConvertTo->setMinimumSize(QSize(30, 30));
         QIcon icon5;
-        icon5.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/image/document-save.png")), QIcon::Normal, QIcon::Off);
+        icon5.addFile(QString::fromUtf8(":/new/prefix1/image/document-save.png"), QSize(), QIcon::Normal, QIcon::Off);
         btnConvertTo->setIcon(icon5);
 
         horizontalLayout_5->addWidget(btnConvertTo);
@@ -523,7 +523,7 @@ public:
         btnConvert->setMaximumSize(QSize(120, 16777215));
         btnConvert->setAutoFillBackground(false);
         QIcon icon6;
-        icon6.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/image/dialog-ok.png")), QIcon::Normal, QIcon::Off);
+        icon6.addFile(QString::fromUtf8(":/new/prefix1/image/dialog-ok.png"), QSize(), QIcon::Normal, QIcon::Off);
         btnConvert->setIcon(icon6);
 
         horizontalLayout->addWidget(btnConvert);
@@ -665,7 +665,7 @@ public:
         toolTHAdd = new QToolButton(groupTraceHeader);
         toolTHAdd->setObjectName(QString::fromUtf8("toolTHAdd"));
         QIcon icon7;
-        icon7.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/image/Crystal_Clear_action_edit_add.png")), QIcon::Normal, QIcon::Off);
+        icon7.addFile(QString::fromUtf8(":/new/prefix1/image/Crystal_Clear_action_edit_add.png"), QSize(), QIcon::Normal, QIcon::Off);
         toolTHAdd->setIcon(icon7);
 
         verticalLayout_10->addWidget(toolTHAdd);
@@ -673,7 +673,7 @@ public:
         toolTHRemove = new QToolButton(groupTraceHeader);
         toolTHRemove->setObjectName(QString::fromUtf8("toolTHRemove"));
         QIcon icon8;
-        icon8.addPixmap(QPixmap(QString::fromUtf8(":/new/prefix1/image/Crystal_Clear_action_edit_remove.png")), QIcon::Normal, QIcon::Off);
+        icon8.addFile(QString::fromUtf8(":/new/prefix1/image/Crystal_Clear_action_edit_remove.png"), QSize(), QIcon::Normal, QIcon::Off);
         toolTHRemove->setIcon(icon8);
 
         verticalLayout_10->addWidget(toolTHRemove);

@@ -160,6 +160,11 @@ private:
     int reference(int index);
     void checkInfo();
 
+    /// 数据读取和写入
+    void read3200();
+    void read400();
+    void readData();
+
     /// 帮助
     Help *help;
 
