@@ -186,6 +186,7 @@ void MainWindow::setData()
         maxTime=thTemp.ns*thTemp.dt/1000;
         //qDebug()<<maxTime<<count;
         traceLength=240+thTemp.ns*sizeof(float);
+        qDebug()<<traceLength;
         ui->radioOriginalLittleEndian->setChecked(1);
         if(bhTemp.format==0)
         {
@@ -230,6 +231,9 @@ void MainWindow::setData()
         read.setByteOrder(QJDDataStream::BigEndian);
         ui->radioBigEndian->setChecked(1);
     }
+
+    traceLength=240+thTemp.ns*sizeof(float);
+
 }
 
 void MainWindow::resizeEvent()
@@ -2911,8 +2915,10 @@ void MainWindow::convertSkipTrace()
         write<<bh;
     }
 
+    qDebug()<<bh.hns<<bh.hdt;
     int b;
     b=count/(skipTrace+1);
+    qDebug()<<"b"<<b;
     QProgressDialog progress(tr("Converting files..."), tr("Abort"), 0,b-1, this);
     progress.setWindowModality(Qt::WindowModal);
     progress.setMinimumDuration(1000);
@@ -2941,8 +2947,6 @@ void MainWindow::convertSkipTrace()
     if(z==count)
     {
         flagConvertComplete=true;
-//        msgBox.setText(tr("Format Complete."));
-//        msgBox.exec();
     }
 }
 
