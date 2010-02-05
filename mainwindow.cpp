@@ -111,7 +111,7 @@ void MainWindow::on_actionOpen_triggered()
     count=0;
 
     read.setDevice(&fOpen);
-    read.setByteOrder(QJDDataStream::BigEndian);
+    read.setByteOrder(QJDDataStream::BigEndian);        //设置默认为big，如果为little则再次进行计算
     setData();
 
     ui->groupBox_3->setEnabled(true);
@@ -165,7 +165,9 @@ void MainWindow::setData()
     read>>thTemp;
     count=(fOpen.size()-3600)/(240+thTemp.ns*sizeof(float));  //取得道数
     maxTime=bhTemp.hns*bhTemp.hdt/1000;
-    //    qDebug()<<maxTime<<count;
+    traceLength=240+thTemp.ns*sizeof(float);
+
+//    qDebug()<<maxTime<<count<<traceLength;
     if(bhTemp.hns==0 || bhTemp.hdt==0)
     {
         bhTemp.hns=thTemp.ns;
@@ -176,6 +178,7 @@ void MainWindow::setData()
     {
         flagTHis0=true;
     }
+//    qDebug()<<"hns"<<bhTemp.hns<<"format"<<bhTemp.format;
     if(bhTemp.hns>10000 || bhTemp.format>10)
     {
         read.setByteOrder(QJDDataStream::LittleEndian);
@@ -186,7 +189,7 @@ void MainWindow::setData()
         maxTime=thTemp.ns*thTemp.dt/1000;
         //qDebug()<<maxTime<<count;
         traceLength=240+thTemp.ns*sizeof(float);
-        qDebug()<<traceLength;
+//        qDebug()<<traceLength;
         ui->radioOriginalLittleEndian->setChecked(1);
         if(bhTemp.format==0)
         {
@@ -231,8 +234,6 @@ void MainWindow::setData()
         read.setByteOrder(QJDDataStream::BigEndian);
         ui->radioBigEndian->setChecked(1);
     }
-
-    traceLength=240+thTemp.ns*sizeof(float);
 
 }
 
