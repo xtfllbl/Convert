@@ -89,6 +89,8 @@ MainWindow::MainWindow(QWidget *parent)
     //    ui->combo240->setMaxVisibleItems(10);
     //    ui->combo240->setModelColumn(3);
 
+    isSegy=false;
+    isSu=false;
 }
 
 MainWindow::~MainWindow()
@@ -100,8 +102,8 @@ void MainWindow::on_actionOpen_triggered()
 {
     if(fOpen.isOpen())
         fOpen.close();
-    openFileName=QFileDialog::getOpenFileName(this,tr("Open SEGY files"),"/home/student/Source/SEGY",
-                                              tr("SEGY files(*segy *Segy *SEGY *sgy *Sgy *SGY)"));
+    openFileName=QFileDialog::getOpenFileName(this,tr("Open Files"),"/home/student/Source/SEGY",
+                                              tr("SEGY files(*segy *Segy *SEGY *sgy *Sgy *SGY) ;; SU files(*su *SU *Su) "));
     if(openFileName=="")
         return;
     ui->labelOpenFileName->setText(openFileName);
@@ -157,84 +159,144 @@ void MainWindow::on_actionExit_triggered()
 }
 void MainWindow::setData()
 {
-    count=0;
-    maxTime=0;
-    fOpen.seek(3200);
-    read>>bhTemp;
-    fOpen.seek(3600);
-    read>>thTemp;
-    count=(fOpen.size()-3600)/(240+thTemp.ns*sizeof(float));  //取得道数
-    maxTime=bhTemp.hns*bhTemp.hdt/1000;
-    traceLength=240+thTemp.ns*sizeof(float);
+    ui->radioFormat->setChecked(1);
+    //判断选则的文件类型
+    isSegy=false;
+    isSu=false;
+    QString suffix=openFileName.right(openFileName.count()-openFileName.indexOf(".")-1);
 
-//    qDebug()<<maxTime<<count<<traceLength;
-    if(bhTemp.hns==0 || bhTemp.hdt==0)
+    if(suffix.contains("su",Qt::CaseInsensitive))
+        isSu=true;
+    if(suffix.contains("segy",Qt::CaseInsensitive))
+        isSegy=true;
+    if(suffix.contains("sgy",Qt::CaseInsensitive))
+        isSegy=true;
+
+    //开始预读
+    //SU
+    if(isSu==true)
     {
-        bhTemp.hns=thTemp.ns;
-        bhTemp.hdt=thTemp.dt;
-        flagBHis0=true;
-    }
-    if(thTemp.ns==0 || thTemp.dt==0)
-    {
-        flagTHis0=true;
-    }
-//    qDebug()<<"hns"<<bhTemp.hns<<"format"<<bhTemp.format;
-    if(bhTemp.hns>10000 || bhTemp.format>10)
-    {
-        read.setByteOrder(QJDDataStream::LittleEndian);
-        fOpen.seek(3200);
-        read>>bhTemp;
+        qDebug()<<"isSU";
+        fOpen.seek(0);
         read>>thTemp;
-        count=(fOpen.size()-3600)/(240+thTemp.ns*sizeof(float));  //取得道数
-        maxTime=thTemp.ns*thTemp.dt/1000;
-        //qDebug()<<maxTime<<count;
-        traceLength=240+thTemp.ns*sizeof(float);
-//        qDebug()<<traceLength;
-        ui->radioOriginalLittleEndian->setChecked(1);
-        if(bhTemp.format==0)
+        count=fOpen.size()/(240+thTemp.ns*sizeof(float));  //取得道数
+        if(thTemp.ns>15000 || thTemp.dt>15000)
         {
-            QMessageBox a;
-            a.setText(tr("This file do not exist correct <DataFormat> information, the programe will set the IEEE for default!"));
-            ui->radioOriginalIEEE->setChecked(1);
-            a.exec();
+            fOpen.seek(0);
+            read.setByteOrder(QJDDataStream::LittleEndian);
+            read>>thTemp;
+            count=fOpen.size()/(240+thTemp.ns*sizeof(float));
+            ui->radioOriginalLittleEndian->setChecked(1);
         }
-        if(bhTemp.format==1)
-            ui->radioOriginalIBM->setChecked(1);
-        if(bhTemp.format==5)
-            ui->radioOriginalIEEE->setChecked(1);
-    }
-    else
-    {
-        ui->radioOriginalBigEndian->setChecked(1);
-        if(bhTemp.format==1)
-            ui->radioOriginalIBM->setChecked(1);
-        if(bhTemp.format==5)
-            ui->radioOriginalIEEE->setChecked(1);
-    }
+        else
+        {
+            ui->radioOriginalBigEndian->setChecked(1);
+        }
+        qDebug()<<thTemp.ns<<thTemp.dt<<count;
 
-
-    if(groupOriginalFormat.checkedButton()==ui->radioOriginalIEEE)
-    {
-        read.setFormat(QJDDataStream::IEEE);
-        ui->radioIEEE->setChecked(1);
-    }
-    if(groupOriginalFormat.checkedButton()==ui->radioOriginalIBM)
-    {
+        QMessageBox a;
+        a.setText(tr("SU file do not exist <DataFormat> information, the programe will set the IBM for default!"));
+        a.exec();
         read.setFormat(QJDDataStream::IBM);
+        ui->radioOriginalIBM->setChecked(1);
         ui->radioIBM->setChecked(1);
 
-    }
-    if(groupOriginalByteOrder.checkedButton()==ui->radioOriginalLittleEndian)
-    {
-        read.setByteOrder(QJDDataStream::LittleEndian);
-        ui->radioLittleEndian->setChecked(1);
-    }
-    if(groupOriginalByteOrder.checkedButton()==ui->radioOriginalBigEndian)
-    {
-        read.setByteOrder(QJDDataStream::BigEndian);
-        ui->radioBigEndian->setChecked(1);
+        if(groupOriginalByteOrder.checkedButton()==ui->radioOriginalLittleEndian)
+        {
+            read.setByteOrder(QJDDataStream::LittleEndian);
+            ui->radioLittleEndian->setChecked(1);
+        }
+        if(groupOriginalByteOrder.checkedButton()==ui->radioOriginalBigEndian)
+        {
+            read.setByteOrder(QJDDataStream::BigEndian);
+            ui->radioBigEndian->setChecked(1);
+        }
+
+        //去掉功能
+        ui->btnAD->setDisabled(true);
+        ui->radioConvert->setDisabled(true);
     }
 
+    //SEGY
+    if (isSegy==true)
+    {
+        ui->btnAD->setDisabled(false);
+        ui->radioConvert->setDisabled(false);
+        count=0;
+        maxTime=0;
+        fOpen.seek(3200);
+        read>>bhTemp;
+        fOpen.seek(3600);
+        read>>thTemp;
+        count=(fOpen.size()-3600)/(240+thTemp.ns*sizeof(float));  //取得道数
+        maxTime=bhTemp.hns*bhTemp.hdt/1000;
+        traceLength=240+thTemp.ns*sizeof(float);
+
+        //    qDebug()<<maxTime<<count<<traceLength;
+        if(bhTemp.hns==0 || bhTemp.hdt==0)
+        {
+            bhTemp.hns=thTemp.ns;
+            bhTemp.hdt=thTemp.dt;
+            flagBHis0=true;
+        }
+        if(thTemp.ns==0 || thTemp.dt==0)
+        {
+            flagTHis0=true;
+        }
+        if(bhTemp.hns>10000 || bhTemp.format>10)
+        {
+            read.setByteOrder(QJDDataStream::LittleEndian);
+            fOpen.seek(3200);
+            read>>bhTemp;   //400
+            read>>thTemp;    //240
+            count=(fOpen.size()-3600)/(240+thTemp.ns*sizeof(float));  //取得道数
+            maxTime=thTemp.ns*thTemp.dt/1000;
+            traceLength=240+thTemp.ns*sizeof(float);
+            ui->radioOriginalLittleEndian->setChecked(1);
+            if(bhTemp.format==0)
+            {
+                QMessageBox a;
+                a.setText(tr("This file do not exist correct <DataFormat> information, the programe will set the IEEE for default!"));
+                ui->radioOriginalIEEE->setChecked(1);
+                a.exec();
+            }
+            if(bhTemp.format==1)
+                ui->radioOriginalIBM->setChecked(1);
+            if(bhTemp.format==5)
+                ui->radioOriginalIEEE->setChecked(1);
+        }
+        else
+        {
+            ui->radioOriginalBigEndian->setChecked(1);
+            if(bhTemp.format==1)
+                ui->radioOriginalIBM->setChecked(1);
+            if(bhTemp.format==5)
+                ui->radioOriginalIEEE->setChecked(1);
+        }
+
+
+        //使输出保持一致
+        if(groupOriginalFormat.checkedButton()==ui->radioOriginalIEEE)
+        {
+            read.setFormat(QJDDataStream::IEEE);
+            ui->radioIEEE->setChecked(1);
+        }
+        if(groupOriginalFormat.checkedButton()==ui->radioOriginalIBM)
+        {
+            read.setFormat(QJDDataStream::IBM);
+            ui->radioIBM->setChecked(1);
+        }
+        if(groupOriginalByteOrder.checkedButton()==ui->radioOriginalLittleEndian)
+        {
+            read.setByteOrder(QJDDataStream::LittleEndian);
+            ui->radioLittleEndian->setChecked(1);
+        }
+        if(groupOriginalByteOrder.checkedButton()==ui->radioOriginalBigEndian)
+        {
+            read.setByteOrder(QJDDataStream::BigEndian);
+            ui->radioBigEndian->setChecked(1);
+        }
+    }
 }
 
 void MainWindow::resizeEvent()
@@ -813,10 +875,10 @@ void MainWindow::on_checkAcResample_clicked(bool checked)
     }
 }
 
-void MainWindow::on_btnConvert_clicked()        //最终点击按钮
+void MainWindow::on_btnConvert_clicked()        //最终点击转换按钮
 {
     setInfo();      //设置相关信息
-    checkInfo();
+    checkInfo();    //检查相关输入
     if(flagSetInfo==false)      //设置信息不成功，则在此就退出
         return;
 
@@ -1379,31 +1441,50 @@ void  MainWindow::convert2SU()
     if(j==count)
     {
         flagConvertComplete=true;
-//        msgBox.setText(tr("Convert to SU Success."));
-//        msgBox.exec();
+        //        msgBox.setText(tr("Convert to SU Success."));
+        //        msgBox.exec();
     }
 }
 
 void MainWindow::convert2SEGY()
 {
     flagConvertComplete=false;
+
+    //添加3600
+    if(isSu==true)
+    {
+        bty.resize(3201);       //切勿忘记开空间，后果不堪设想
+        *(bty.data()+3200)='\0';
+        write.writeRawData(bty.data(),3200);
+        bhTemp.hns=thTemp.ns;
+        bhTemp.hdt=thTemp.dt;
+        if(groupFormat.checkedButton()==ui->radioIEEE)      //设置目标文件的格式,可以一次性统一设好
+        {
+            bhTemp.format=5;
+        }
+        if(groupFormat.checkedButton()==ui->radioIBM)
+        {
+            bhTemp.format=1;
+        }
+        write<<bhTemp;
+        fOpen.seek(0);
+    }
+    if(isSegy==true)
+    {
+        read3200();
+        read>>bh;    //写400
+        //qDebug()<<bh.hdt<<bh.dto<<bh.hns<<bh.nso;
+        if(ui->radioIBM->isChecked())
+            bh.format=1;
+        else if(ui->radioIEEE->isChecked())
+            bh.format=5;
+        write<<bh;
+    }
+    int z;
     float temp;
     QProgressDialog progress(tr("Converting files..."), tr("Abort"), 0,count-1, this);
     progress.setWindowModality(Qt::WindowModal);
     progress.setMinimumDuration(1000);
-    QMessageBox msgBox;
-
-    read3200();
-
-    read>>bh;    //写400
-    //qDebug()<<bh.hdt<<bh.dto<<bh.hns<<bh.nso;
-    if(ui->radioIBM->isChecked())
-        bh.format=1;
-    else if(ui->radioIEEE->isChecked())
-        bh.format=5;
-    write<<bh;
-
-    int z;
     for(z=0;z<count;z++)
     {
         read>>th;       //将开头第一个的240赋给th，这样就可用ns,dt;
@@ -1416,8 +1497,7 @@ void MainWindow::convert2SEGY()
         progress.setValue(z);
         if (progress.wasCanceled())
         {
-            msgBox.setText(tr("Format has been terminated !"));
-            msgBox.exec();
+            QMessageBox::warning(this,"Abort","Format has been terminated !");
             break;
         }
 
@@ -1425,10 +1505,8 @@ void MainWindow::convert2SEGY()
     if(z==count)
     {
         flagConvertComplete=true;
-//        msgBox.setText(tr("Format to SEGY Complete."));
-//        msgBox.exec();
     }
-    //lastClear();
+
 }
 
 /// 在正常道头取值的情况下的所有组合
@@ -1760,7 +1838,7 @@ void MainWindow::convertStandard()
             if(z==count)
             {
                 flagConvertComplete=true;
-               // QMessageBox::information(this,tr("complete"),tr("Convert complete!"));
+                // QMessageBox::information(this,tr("complete"),tr("Convert complete!"));
             }
         }
 
@@ -1812,56 +1890,56 @@ void MainWindow::convertStandard()
                     }
                 }
                 if(flagResample==true)
-                   {
-                       if(flagAcResample==false)               //不同的读写数据方式
-                       {                                                 //正常读写
-                           for(int b=0;b<th.ns;b++)
-                           {
-                               read>>temp;
-                               write<<temp;
-                               for(int c=0;c<skipNum;c++)      //略过指定数量的数据
-                               {
-                                   read>>skipTemp;
-                               }
-                           }
-                       }
-                       if(flagAcResample==true)
-                       {                                                 //精确读写
-                           for(int b=0;b<leftNumTCReal.size();b++)
-                           {
-                               for(int c=0;c<leftNumTCReal[b]-rightNumTCMinus[b];c++)
-                               {
-                                   read>>temp;            //跳过不需要
-                               }
-                               if(flagResampleChange==false)
-                               {
-                                   for(int d=0;d<rightNumTCReal[b]-leftNumTCReal[b]+1;d++)
-                                   {
-                                       read>>temp;
-                                       write<<temp;
-                                   }
-                               }
-                               if(flagResampleChange==true)        //非常特殊的情况
-                               {
-                                   for(int d=0;d<loopNum[b];d++)
-                                   {
-                                       read>>temp;
-                                       write<<temp;
-                                       for(int c=0;c<skipNum;c++)      //略过指定数量的数据
-                                       {
-                                           read>>skipTemp;
-                                       }
-                                   }
-                               }
-                           }
-                       }
-                   }
+                {
+                    if(flagAcResample==false)               //不同的读写数据方式
+                    {                                                 //正常读写
+                        for(int b=0;b<th.ns;b++)
+                        {
+                            read>>temp;
+                            write<<temp;
+                            for(int c=0;c<skipNum;c++)      //略过指定数量的数据
+                            {
+                                read>>skipTemp;
+                            }
+                        }
+                    }
+                    if(flagAcResample==true)
+                    {                                                 //精确读写
+                        for(int b=0;b<leftNumTCReal.size();b++)
+                        {
+                            for(int c=0;c<leftNumTCReal[b]-rightNumTCMinus[b];c++)
+                            {
+                                read>>temp;            //跳过不需要
+                            }
+                            if(flagResampleChange==false)
+                            {
+                                for(int d=0;d<rightNumTCReal[b]-leftNumTCReal[b]+1;d++)
+                                {
+                                    read>>temp;
+                                    write<<temp;
+                                }
+                            }
+                            if(flagResampleChange==true)        //非常特殊的情况
+                            {
+                                for(int d=0;d<loopNum[b];d++)
+                                {
+                                    read>>temp;
+                                    write<<temp;
+                                    for(int c=0;c<skipNum;c++)      //略过指定数量的数据
+                                    {
+                                        read>>skipTemp;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
                 p1.setValue(z);
             }
             if(z==b)
             {
                 flagConvertComplete=true;
-             //   QMessageBox::information(this,tr("complete"),tr("Convert complete!"));
+                //   QMessageBox::information(this,tr("complete"),tr("Convert complete!"));
             }
         }
     }
@@ -2385,7 +2463,7 @@ void MainWindow::convertNonStandard()
             if(z==count)
             {
                 flagConvertComplete=true;
-            //    QMessageBox::information(this,tr("complete"),tr("Convert complete!"));
+                //    QMessageBox::information(this,tr("complete"),tr("Convert complete!"));
             }
         }
 
@@ -2548,7 +2626,7 @@ void MainWindow::convertNonStandard()
             if(z==b)
             {
                 flagConvertComplete=true;
-            //    QMessageBox::information(this,tr("complete"),tr("Convert complete!"));
+                //    QMessageBox::information(this,tr("complete"),tr("Convert complete!"));
             }
         }
     }
@@ -2744,8 +2822,8 @@ void MainWindow::convertTraceScope()
     if(number==leftNum.size())
     {
         flagConvertComplete=true;
-//        m1.setText(tr("Trace Scope Complete."));
-//        m1.exec();
+        //        m1.setText(tr("Trace Scope Complete."));
+        //        m1.exec();
     }
 }
 
@@ -2831,8 +2909,8 @@ void MainWindow::convertResample()
         if(a==count)
         {
             flagConvertComplete=true;
-//            m1.setText(tr("Resample Complete."));
-//            m1.exec();
+            //            m1.setText(tr("Resample Complete."));
+            //            m1.exec();
         }
     }
     if(flagSkip==true)
@@ -2887,8 +2965,8 @@ void MainWindow::convertResample()
         if(a==b)
         {
             flagConvertComplete=true;
-//            m1.setText(tr("Resample Complete."));
-//            m1.exec();
+            //            m1.setText(tr("Resample Complete."));
+            //            m1.exec();
         }
     }
 

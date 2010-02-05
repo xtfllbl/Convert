@@ -116,7 +116,7 @@
               </size>
              </property>
              <property name="text">
-              <string> Open file format:</string>
+              <string>Open file format:</string>
              </property>
             </widget>
            </item>
@@ -250,7 +250,7 @@
               </size>
              </property>
              <property name="text">
-              <string>Format SEGY</string>
+              <string>Convert To SEGY</string>
              </property>
             </widget>
            </item>

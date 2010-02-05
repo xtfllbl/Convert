@@ -3,7 +3,7 @@
 # -------------------------------------------------
 TARGET = Convert
 TEMPLATE = app
-CONFIG += release
+CONFIG += debug
 SOURCES += main.cpp \
     mainwindow.cpp \
     qjddatastream.cpp \

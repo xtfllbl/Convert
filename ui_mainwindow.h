@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Thu Feb 4 16:09:51 2010
+** Created: Fri Feb 5 15:09:50 2010
 **      by: Qt User Interface Compiler version 4.5.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -952,7 +952,7 @@ public:
         groupInput->setTitle(QApplication::translate("MainWindow", "Input File", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MainWindow", "Process File Name:", 0, QApplication::UnicodeUTF8));
         labelOpenFileName->setText(QApplication::translate("MainWindow", "The File Name you opened will display here", 0, QApplication::UnicodeUTF8));
-        label_6->setText(QApplication::translate("MainWindow", " Open file format:", 0, QApplication::UnicodeUTF8));
+        label_6->setText(QApplication::translate("MainWindow", "Open file format:", 0, QApplication::UnicodeUTF8));
         radioOriginalIEEE->setText(QApplication::translate("MainWindow", "IEEE", 0, QApplication::UnicodeUTF8));
         radioOriginalIBM->setText(QApplication::translate("MainWindow", "IBM", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("MainWindow", "Open file byteorder:", 0, QApplication::UnicodeUTF8));
@@ -960,7 +960,7 @@ public:
         radioOriginalBigEndian->setText(QApplication::translate("MainWindow", "BigEndian", 0, QApplication::UnicodeUTF8));
         groupBox_3->setTitle(QApplication::translate("MainWindow", "Choose Output Format:", 0, QApplication::UnicodeUTF8));
         label_8->setText(QApplication::translate("MainWindow", "Choose Function:", 0, QApplication::UnicodeUTF8));
-        radioFormat->setText(QApplication::translate("MainWindow", "Format SEGY", 0, QApplication::UnicodeUTF8));
+        radioFormat->setText(QApplication::translate("MainWindow", "Convert To SEGY", 0, QApplication::UnicodeUTF8));
         radioConvert->setText(QApplication::translate("MainWindow", "Convert To SU", 0, QApplication::UnicodeUTF8));
         btnAD->setText(QApplication::translate("MainWindow", "Advanced Function", 0, QApplication::UnicodeUTF8));
         groupOption->setTitle(QApplication::translate("MainWindow", "Choose Function ", 0, QApplication::UnicodeUTF8));

@@ -29,6 +29,8 @@ public:
 private:
     Ui::MainWindow *ui;
 
+    bool isSegy;
+    bool isSu;
     QString openFileName;
     QString convertToFileName;
     QFile fOpen;
