@@ -91,6 +91,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     isSegy=false;
     isSu=false;
+    headNum=0;      //su是0，segy是3600
 }
 
 MainWindow::~MainWindow()
@@ -159,7 +160,7 @@ void MainWindow::on_actionExit_triggered()
 }
 void MainWindow::setData()
 {
-    ui->radioFormat->setChecked(1);
+    ui->radioFormat->setChecked(1); //默认转换为segy
     //判断选则的文件类型
     isSegy=false;
     isSu=false;
@@ -176,14 +177,15 @@ void MainWindow::setData()
     //SU
     if(isSu==true)
     {
+        headNum=0;
         qDebug()<<"isSU";
-        fOpen.seek(0);
+        fOpen.seek(headNum);
         read>>thTemp;
         count=fOpen.size()/(240+thTemp.ns*sizeof(float));  //取得道数
         if(thTemp.ns>15000 || thTemp.dt>15000)
         {
             fOpen.seek(0);
-            read.setByteOrder(QJDDataStream::LittleEndian);
+            read.setByteOrder(QJDDataStream::LittleEndian); //BigEndian不对，换一种格式预读
             read>>thTemp;
             count=fOpen.size()/(240+thTemp.ns*sizeof(float));
             ui->radioOriginalLittleEndian->setChecked(1);
@@ -197,7 +199,7 @@ void MainWindow::setData()
         QMessageBox a;
         a.setText(tr("SU file do not exist <DataFormat> information, the programe will set the IBM for default!"));
         a.exec();
-        read.setFormat(QJDDataStream::IBM);
+        read.setFormat(QJDDataStream::IBM);     //默认的su格式都是ibm的，自己转换的例外
         ui->radioOriginalIBM->setChecked(1);
         ui->radioIBM->setChecked(1);
 
@@ -211,24 +213,21 @@ void MainWindow::setData()
             read.setByteOrder(QJDDataStream::BigEndian);
             ui->radioBigEndian->setChecked(1);
         }
-
-        //去掉功能
-        ui->btnAD->setDisabled(true);
-        ui->radioConvert->setDisabled(true);
     }
 
     //SEGY
     if (isSegy==true)
     {
+        headNum=3600;
         ui->btnAD->setDisabled(false);
         ui->radioConvert->setDisabled(false);
         count=0;
         maxTime=0;
         fOpen.seek(3200);
         read>>bhTemp;
-        fOpen.seek(3600);
+        fOpen.seek(headNum);
         read>>thTemp;
-        count=(fOpen.size()-3600)/(240+thTemp.ns*sizeof(float));  //取得道数
+        count=(fOpen.size()-headNum)/(240+thTemp.ns*sizeof(float));  //取得道数
         maxTime=bhTemp.hns*bhTemp.hdt/1000;
         traceLength=240+thTemp.ns*sizeof(float);
 
@@ -249,7 +248,7 @@ void MainWindow::setData()
             fOpen.seek(3200);
             read>>bhTemp;   //400
             read>>thTemp;    //240
-            count=(fOpen.size()-3600)/(240+thTemp.ns*sizeof(float));  //取得道数
+            count=(fOpen.size()-headNum)/(240+thTemp.ns*sizeof(float));  //取得道数
             maxTime=thTemp.ns*thTemp.dt/1000;
             traceLength=240+thTemp.ns*sizeof(float);
             ui->radioOriginalLittleEndian->setChecked(1);
@@ -1419,7 +1418,14 @@ void  MainWindow::convert2SU()
     progress.setMinimumDuration(1000);
     QMessageBox msgBox;
 
-    fOpen.seek(3600);
+    if(isSegy==true)
+    {
+        fOpen.seek(headNum);
+    }
+    if(isSu==true)
+    {
+        fOpen.seek(headNum);
+    }
     int j;
     for(j=0;j<count;j++)
     {
@@ -1441,8 +1447,6 @@ void  MainWindow::convert2SU()
     if(j==count)
     {
         flagConvertComplete=true;
-        //        msgBox.setText(tr("Convert to SU Success."));
-        //        msgBox.exec();
     }
 }
 
@@ -1467,7 +1471,7 @@ void MainWindow::convert2SEGY()
             bhTemp.format=1;
         }
         write<<bhTemp;
-        fOpen.seek(0);
+        fOpen.seek(0);      //转移到道头准备转换
     }
     if(isSegy==true)
     {
@@ -1516,6 +1520,7 @@ void MainWindow::convertStandard()
     float temp;               //整个函数通用，非常重要
     float skipTemp;         //跳过一部分的数据的临时存放
 
+    //read3200,read400都包含了原始为su的处理方法
     //3200
     read3200();
 
@@ -1529,7 +1534,7 @@ void MainWindow::convertStandard()
         int number;
         for(number=0;number<leftNum.size();number++)
         {
-            fOpen.seek(3600+(leftNum[number]-1)*traceLength);       //只需偏移到指定的地方，读取指定数据，再进行偏移即可
+            fOpen.seek(headNum+(leftNum[number]-1)*traceLength);       //只需偏移到指定的地方，读取指定数据，再进行偏移即可
             qDebug()<<flagSkip;
 
             if(flagSkip==false)
@@ -1541,7 +1546,7 @@ void MainWindow::convertStandard()
                 qDebug()<<rightNum[number]-leftNum[number]+1;
                 for(int j=0;j<rightNum[number]-leftNum[number]+1;j++)       //读取需要的道
                 {
-                    fOpen.seek(3600+(leftNum[number]-1)*traceLength+j*traceLength);
+                    fOpen.seek(headNum+(leftNum[number]-1)*traceLength+j*traceLength);
 
                     read>>th;       //将开头第一个的240赋给th，这样就可用ns,dt;
 
@@ -1641,7 +1646,7 @@ void MainWindow::convertStandard()
 
                 for(int j=0;j<skipLoop[number];j++)       //读取需要的道
                 {
-                    fOpen.seek(3600+(leftNum[number]-1)*traceLength+j*(skipTrace+1)*traceLength);
+                    fOpen.seek(headNum+(leftNum[number]-1)*traceLength+j*(skipTrace+1)*traceLength);
                     read>>th;       //将开头第一个的240赋给th，这样就可用ns,dt;
 
                     if(flagStandardDefault==false)
@@ -1751,7 +1756,7 @@ void MainWindow::convertStandard()
 
             for(z=0;z<count;z++)
             {
-                fOpen.seek(3600+z*traceLength);
+                fOpen.seek(headNum+z*traceLength);
 
                 read>>th;       //将开头第一个的240赋给th，这样就可用ns,dt;
 
@@ -1851,7 +1856,7 @@ void MainWindow::convertStandard()
 
             for(z=0;z<b;z++)
             {
-                fOpen.seek(3600+z*(skipTrace+1)*traceLength);
+                fOpen.seek(headNum+z*(skipTrace+1)*traceLength);
                 read>>th;       //将开头第一个的240赋给th，这样就可用ns,dt;
 
                 if(flagStandardDefault==false)
@@ -1965,7 +1970,7 @@ void MainWindow::convertNonStandard()
         int number;
         for(number=0;number<leftNum.size();number++)
         {
-            fOpen.seek(3600+(leftNum[number]-1)*traceLength);       //只需偏移到指定的地方，读取指定数据，再进行偏移即可
+            fOpen.seek(headNum+(leftNum[number]-1)*traceLength);       //只需偏移到指定的地方，读取指定数据，再进行偏移即可
             if(flagSkip==false)
             {
                 QProgressDialog p1(tr("Converting..."), tr("Abort"), 0,rightNum[number]-leftNum[number], this);
@@ -1974,7 +1979,7 @@ void MainWindow::convertNonStandard()
 
                 for(int j=0;j<rightNum[number]-leftNum[number]+1;j++)       //读取需要的道
                 {
-                    fOpen.seek(3600+(leftNum[number]-1)*traceLength+j*traceLength);   //由于改变了采样时间，导致有可能一道数据不是正好取到结尾，所以每一道都要偏移道头上
+                    fOpen.seek(headNum+(leftNum[number]-1)*traceLength+j*traceLength);   //由于改变了采样时间，导致有可能一道数据不是正好取到结尾，所以每一道都要偏移道头上
 
                     seekSave=fOpen.pos();
                     fOpen.seek(seekSave+seekPos);       //先偏移到指定位置看看数据符合条件发，
@@ -2138,7 +2143,7 @@ void MainWindow::convertNonStandard()
 
                 for(int j=0;j<skipLoop[number]+1;j++)       //读取需要的道
                 {
-                    fOpen.seek(3600+(leftNum[number]-1)*traceLength+j*(skipTrace+1)*traceLength);   //由于改变了采样时间，导致有可能一道数据不是正好取到结尾，所以每一道都要偏移道头上
+                    fOpen.seek(headNum+(leftNum[number]-1)*traceLength+j*(skipTrace+1)*traceLength);   //由于改变了采样时间，导致有可能一道数据不是正好取到结尾，所以每一道都要偏移道头上
 
                     seekSave=fOpen.pos();
                     fOpen.seek(seekSave+seekPos);       //先偏移到指定位置看看数据符合条件发，
@@ -2311,7 +2316,7 @@ void MainWindow::convertNonStandard()
             p1.setMinimumDuration(1000);
             for(z=0;z<count;z++)
             {
-                fOpen.seek(3600+z*traceLength);
+                fOpen.seek(headNum+z*traceLength);
 
                 seekSave=fOpen.pos();
                 fOpen.seek(seekSave+seekPos);
@@ -2475,7 +2480,7 @@ void MainWindow::convertNonStandard()
             p1.setMinimumDuration(1000);
             for(z=0;z<b;z++)
             {
-                fOpen.seek(3600+z*(skipTrace+1)*traceLength);
+                fOpen.seek(headNum+z*(skipTrace+1)*traceLength);
 
                 seekSave=fOpen.pos();
                 fOpen.seek(seekSave+seekPos);
@@ -2651,7 +2656,7 @@ void MainWindow::convertTraceScope()
     int number;
     for(number=0;number<leftNum.size();number++)
     {
-        fOpen.seek(3600+(leftNum[number]-1)*traceLength);       //只需偏移到指定的地方，读取指定数据，再进行偏移即可
+        fOpen.seek(headNum+(leftNum[number]-1)*traceLength);       //只需偏移到指定的地方，读取指定数据，再进行偏移即可
 
         if(flagSkip==false)
         {
@@ -2744,7 +2749,7 @@ void MainWindow::convertTraceScope()
 
             for(int j=0;j<skipLoop[number];j++)       //读取需要的道
             {
-                fOpen.seek(3600+(leftNum[number]-1)*traceLength+j*(skipTrace+1)*traceLength);
+                fOpen.seek(headNum+(leftNum[number]-1)*traceLength+j*(skipTrace+1)*traceLength);
                 read>>th;       //将开头第一个的240赋给th，这样就可用ns,dt;
 
                 if(flagResample==true)
@@ -2850,7 +2855,7 @@ void MainWindow::convertResample()
         p1.setMinimumDuration(1000);
         for(a=0;a<count;a++)
         {
-            fOpen.seek(3600+a*traceLength);   //由于改变了采样时间，导致有可能一道数据不是正好取到结尾，所以每一道都要偏移道头上
+            fOpen.seek(headNum+a*traceLength);   //由于改变了采样时间，导致有可能一道数据不是正好取到结尾，所以每一道都要偏移道头上
             read>>th;
             th.ns=bh.hns;
             th.dt=bh.hdt;
@@ -2921,7 +2926,7 @@ void MainWindow::convertResample()
         p1.setMinimumDuration(1000);
         for(a=0;a<b;a++)
         {
-            fOpen.seek(3600+a*(skipTrace+1)*traceLength);   //由于改变了采样时间，导致有可能一道数据不是正好取到结尾，所以每一道都要偏移道头上
+            fOpen.seek(headNum+a*(skipTrace+1)*traceLength);   //由于改变了采样时间，导致有可能一道数据不是正好取到结尾，所以每一道都要偏移道头上
             read>>th;
             th.ns=bh.hns;
             th.dt=bh.hdt;
@@ -3005,7 +3010,7 @@ void MainWindow::convertSkipTrace()
     int z;
     for(z=0;z<b;z++)
     {
-        fOpen.seek(3600+z*(skipTrace+1)*traceLength);
+        fOpen.seek(headNum+z*(skipTrace+1)*traceLength);
 
         read>>th;       //将开头第一个的240赋给th，这样就可用ns,dt;
         write<<th;
@@ -3350,53 +3355,86 @@ void MainWindow::on_actionHelp_triggered()
 //3200
 void MainWindow::read3200()
 {
-    bty.resize(3201);       //切勿忘记开空间，后果不堪设想
-    fOpen.seek(0);
-    read.readRawData(bty.data(),3200);
-    *(bty.data()+3200)='\0';
-    if(flagSU==false)
+    if(isSegy==true)
     {
-        write.writeRawData(bty.data(),3200);
+        bty.resize(3201);       //切勿忘记开空间，后果不堪设想
+        fOpen.seek(0);
+        read.readRawData(bty.data(),3200);
+        *(bty.data()+3200)='\0';
+        if(flagSU==false)
+        {
+            write.writeRawData(bty.data(),3200);
+        }
+    }
+    if(isSu==true)
+    {
+        bty.resize(3201);       //切勿忘记开空间，后果不堪设想
+        *(bty.data()+3200)='\0';
+        if(flagSU==false)
+        {
+            write.writeRawData(bty.data(),3200);
+        }
     }
 }
 
 //400
 void MainWindow::read400()
 {
-    read>>bh;
-    if(flagResample==true)
+    if(isSegy==true)
     {
-        if(flagBHis0==false)
+        read>>bh;
+        if(flagResample==true)
         {
-            oriDt=bhTemp.hdt;
-            oriNs=bhTemp.hns;
+            if(flagBHis0==false)
+            {
+                oriDt=bhTemp.hdt;
+                oriNs=bhTemp.hns;
+            }
+            else if(flagBHis0==true)
+            {
+                oriDt=thTemp.dt;
+                oriNs=thTemp.ns;
+            }
+            nowNs=oriDt*oriNs/nowDt;
+            bh.hdt=nowDt;       //将改动信息写入文件
+            bh.hns=nowNs;
+            if(flagAcResample==true)             //2.精确采样情况下重新写入信息
+            {
+                //现在的个数＊以前的采样间隔/现在的采样间隔
+                newTraceNum=newTraceNum*oriDt/nowDt;
+                bh.hns=newTraceNum;       /// bh也要写入，否则trace display无法正确显示
+            }
+            if(flagResampleChange==true)      //3.单纯和精确重采样结合情况下写入信息
+            {
+                bh.hns=allPointNum;
+            }
         }
-        else if(flagBHis0==true)
+        if(ui->radioIBM->isChecked())
+            bh.format=1;
+        else if(ui->radioIEEE->isChecked())
+            bh.format=5;
+        if(flagSU==false)
         {
-            oriDt=thTemp.dt;
-            oriNs=thTemp.ns;
+            write<<bh;
         }
-        nowNs=oriDt*oriNs/nowDt;
-        bh.hdt=nowDt;       //将改动信息写入文件
-        bh.hns=nowNs;
-        if(flagAcResample==true)             //2.精确采样情况下重新写入信息
-        {
-            //现在的个数＊以前的采样间隔/现在的采样间隔
-            newTraceNum=newTraceNum*oriDt/nowDt;
-            bh.hns=newTraceNum;       /// bh也要写入，否则trace display无法正确显示
-        }
-        if(flagResampleChange==true)      //3.单纯和精确重采样结合情况下写入信息
-        {
-            bh.hns=allPointNum;
-        }
-    }
-    if(ui->radioIBM->isChecked())
-        bh.format=1;
-    else if(ui->radioIEEE->isChecked())
-        bh.format=5;
-    if(flagSU==false)
-    {
-        write<<bh;
     }
 
+    if(isSu==true)
+    {
+        bhTemp.hns=thTemp.ns;
+        bhTemp.hdt=thTemp.dt;
+        if(groupFormat.checkedButton()==ui->radioIEEE)      //设置目标文件的格式,可以一次性统一设好
+        {
+            bhTemp.format=5;
+        }
+        if(groupFormat.checkedButton()==ui->radioIBM)
+        {
+            bhTemp.format=1;
+        }
+        if(flagSU==false)
+        {
+            write<<bhTemp;
+        }
+        fOpen.seek(headNum);      //转移到道头准备转换
+    }
 }

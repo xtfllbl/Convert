@@ -31,6 +31,7 @@ private:
 
     bool isSegy;
     bool isSu;
+    int headNum;
     QString openFileName;
     QString convertToFileName;
     QFile fOpen;

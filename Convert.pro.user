@@ -50,7 +50,7 @@
  </data>
  <data>
   <variable>activebuildconfiguration</variable>
-  <value type="QString">Release</value>
+  <value type="QString">Debug</value>
  </data>
  <data>
   <variable>buildConfiguration-Debug</variable>
@@ -80,16 +80,16 @@
    <valuelist key="abstractProcess.Environment" type="QVariantList">
     <value type="QString">CPATH=/opt/intel/mkl/10.1.2.024/include</value>
     <value type="QString">CWPROOT=/data1/cwp</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-FY1eg7YE4A,guid=6c7a6c40f11d1aebf15ca0004b6a614f</value>
-    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-dIC8r16aIb,guid=b9c3cb9134b3d6133c6639004b6a8427</value>
+    <value type="QString">DESKTOP_SESSION=kde</value>
     <value type="QString">DISPLAY=:0.0</value>
     <value type="QString">FPATH=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">GDMSESSION=gnome</value>
+    <value type="QString">GDMSESSION=kde</value>
     <value type="QString">GDM_XSERVER_LOCATION=local</value>
-    <value type="QString">GNOME_DESKTOP_SESSION_ID=Default</value>
-    <value type="QString">GNOME_KEYRING_SOCKET=/tmp/keyring-7cF0vf/socket</value>
+    <value type="QString">GS_LIB=/home/student/.fonts</value>
+    <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/student/.gtkrc-2.0:/home/student/.kde/share/config/gtkrc-2.0</value>
     <value type="QString">GTK_IM_MODULE=scim-bridge</value>
-    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/student/.gtkrc-1.2-gnome2</value>
+    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/student/.gtkrc:/home/student/.kde/share/config/gtkrc</value>
     <value type="QString">G_BROKEN_FILENAMES=1</value>
     <value type="QString">HISTSIZE=1000</value>
     <value type="QString">HOME=/home/student</value>
@@ -98,7 +98,9 @@
     <value type="QString">INPUTRC=/etc/inputrc</value>
     <value type="QString">INTEL_LICENSE_FILE=/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses:/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses</value>
     <value type="QString">KDEDIR=/usr</value>
+    <value type="QString">KDE_FULL_SESSION=true</value>
     <value type="QString">KDE_IS_PRELINKED=1</value>
+    <value type="QString">KDE_MULTIHEAD=false</value>
     <value type="QString">KDE_NO_IPV6=1</value>
     <value type="QString">LANG=zh_CN.UTF-8</value>
     <value type="QString">LD_LIBRARY_PATH=/home/student/qtcreator-1.3.0/lib/qtcreator:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/opt/intel/mkl/10.1.2.024/lib/em64t:/opt/intel/Compiler/11.0/083/lib/intel64:/opt/intel/Compiler/11.0/083/lib/intel64:/usr/lib64/mysql:/usr/lib64/mysql</value>
@@ -115,16 +117,18 @@
     <value type="QString">QTDIR=/home/student/qtsdk-2009.04/qt</value>
     <value type="QString">QTSDK=/home/student/qtsdk-2009.04</value>
     <value type="QString">QT_IM_MODULE=scim</value>
-    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/3280</value>
+    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/4703</value>
     <value type="QString">SHELL=/bin/bash</value>
-    <value type="QString">SHLVL=1</value>
-    <value type="QString">SSH_AGENT_PID=3319</value>
+    <value type="QString">SHLVL=2</value>
+    <value type="QString">SSH_AGENT_PID=4600</value>
     <value type="QString">SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-JbNDtt3280/agent.3280</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-VoaKDJ4561/agent.4561</value>
     <value type="QString">TERM=dumb</value>
     <value type="QString">USER=student</value>
     <value type="QString">USERNAME=student</value>
-    <value type="QString">XAUTHORITY=/tmp/.gdm0VAN7U</value>
+    <value type="QString">XAUTHORITY=/tmp/.gdmZ1AJ7U</value>
+    <value type="QString">XCURSOR_THEME=default</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/kde/xdg:/etc/xdg</value>
     <value type="QString">XMODIFIERS=@im=SCIM</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
@@ -135,7 +139,7 @@
     <value type="QString">CONFIG+=debug</value>
    </valuelist>
    <value key="abstractProcess.command" type="QString">/home/student/qtsdk-2009.04/qt/bin/qmake</value>
-   <value key="abstractProcess.enabled" type="bool">false</value>
+   <value key="abstractProcess.enabled" type="bool">true</value>
    <value key="abstractProcess.workingDirectory" type="QString">/home/student/Code/Convert</value>
    <value key="buildConfiguration" type=""></value>
   </valuemap>
@@ -147,16 +151,16 @@
    <valuelist key="abstractProcess.Environment" type="QVariantList">
     <value type="QString">CPATH=/opt/intel/mkl/10.1.2.024/include</value>
     <value type="QString">CWPROOT=/data1/cwp</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-FY1eg7YE4A,guid=6c7a6c40f11d1aebf15ca0004b6a614f</value>
-    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-dIC8r16aIb,guid=b9c3cb9134b3d6133c6639004b6a8427</value>
+    <value type="QString">DESKTOP_SESSION=kde</value>
     <value type="QString">DISPLAY=:0.0</value>
     <value type="QString">FPATH=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">GDMSESSION=gnome</value>
+    <value type="QString">GDMSESSION=kde</value>
     <value type="QString">GDM_XSERVER_LOCATION=local</value>
-    <value type="QString">GNOME_DESKTOP_SESSION_ID=Default</value>
-    <value type="QString">GNOME_KEYRING_SOCKET=/tmp/keyring-7cF0vf/socket</value>
+    <value type="QString">GS_LIB=/home/student/.fonts</value>
+    <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/student/.gtkrc-2.0:/home/student/.kde/share/config/gtkrc-2.0</value>
     <value type="QString">GTK_IM_MODULE=scim-bridge</value>
-    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/student/.gtkrc-1.2-gnome2</value>
+    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/student/.gtkrc:/home/student/.kde/share/config/gtkrc</value>
     <value type="QString">G_BROKEN_FILENAMES=1</value>
     <value type="QString">HISTSIZE=1000</value>
     <value type="QString">HOME=/home/student</value>
@@ -165,7 +169,9 @@
     <value type="QString">INPUTRC=/etc/inputrc</value>
     <value type="QString">INTEL_LICENSE_FILE=/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses:/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses</value>
     <value type="QString">KDEDIR=/usr</value>
+    <value type="QString">KDE_FULL_SESSION=true</value>
     <value type="QString">KDE_IS_PRELINKED=1</value>
+    <value type="QString">KDE_MULTIHEAD=false</value>
     <value type="QString">KDE_NO_IPV6=1</value>
     <value type="QString">LANG=zh_CN.UTF-8</value>
     <value type="QString">LD_LIBRARY_PATH=/home/student/qtcreator-1.3.0/lib/qtcreator:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/opt/intel/mkl/10.1.2.024/lib/em64t:/opt/intel/Compiler/11.0/083/lib/intel64:/opt/intel/Compiler/11.0/083/lib/intel64:/usr/lib64/mysql:/usr/lib64/mysql</value>
@@ -182,16 +188,18 @@
     <value type="QString">QTDIR=/home/student/qtsdk-2009.04/qt</value>
     <value type="QString">QTSDK=/home/student/qtsdk-2009.04</value>
     <value type="QString">QT_IM_MODULE=scim</value>
-    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/3280</value>
+    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/4703</value>
     <value type="QString">SHELL=/bin/bash</value>
-    <value type="QString">SHLVL=1</value>
-    <value type="QString">SSH_AGENT_PID=3319</value>
+    <value type="QString">SHLVL=2</value>
+    <value type="QString">SSH_AGENT_PID=4600</value>
     <value type="QString">SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-JbNDtt3280/agent.3280</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-VoaKDJ4561/agent.4561</value>
     <value type="QString">TERM=dumb</value>
     <value type="QString">USER=student</value>
     <value type="QString">USERNAME=student</value>
-    <value type="QString">XAUTHORITY=/tmp/.gdm0VAN7U</value>
+    <value type="QString">XAUTHORITY=/tmp/.gdmZ1AJ7U</value>
+    <value type="QString">XCURSOR_THEME=default</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/kde/xdg:/etc/xdg</value>
     <value type="QString">XMODIFIERS=@im=SCIM</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
@@ -282,16 +290,16 @@
    <valuelist key="abstractProcess.Environment" type="QVariantList">
     <value type="QString">CPATH=/opt/intel/mkl/10.1.2.024/include</value>
     <value type="QString">CWPROOT=/data1/cwp</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-FY1eg7YE4A,guid=6c7a6c40f11d1aebf15ca0004b6a614f</value>
-    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-dIC8r16aIb,guid=b9c3cb9134b3d6133c6639004b6a8427</value>
+    <value type="QString">DESKTOP_SESSION=kde</value>
     <value type="QString">DISPLAY=:0.0</value>
     <value type="QString">FPATH=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">GDMSESSION=gnome</value>
+    <value type="QString">GDMSESSION=kde</value>
     <value type="QString">GDM_XSERVER_LOCATION=local</value>
-    <value type="QString">GNOME_DESKTOP_SESSION_ID=Default</value>
-    <value type="QString">GNOME_KEYRING_SOCKET=/tmp/keyring-7cF0vf/socket</value>
+    <value type="QString">GS_LIB=/home/student/.fonts</value>
+    <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/student/.gtkrc-2.0:/home/student/.kde/share/config/gtkrc-2.0</value>
     <value type="QString">GTK_IM_MODULE=scim-bridge</value>
-    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/student/.gtkrc-1.2-gnome2</value>
+    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/student/.gtkrc:/home/student/.kde/share/config/gtkrc</value>
     <value type="QString">G_BROKEN_FILENAMES=1</value>
     <value type="QString">HISTSIZE=1000</value>
     <value type="QString">HOME=/home/student</value>
@@ -300,7 +308,9 @@
     <value type="QString">INPUTRC=/etc/inputrc</value>
     <value type="QString">INTEL_LICENSE_FILE=/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses:/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses</value>
     <value type="QString">KDEDIR=/usr</value>
+    <value type="QString">KDE_FULL_SESSION=true</value>
     <value type="QString">KDE_IS_PRELINKED=1</value>
+    <value type="QString">KDE_MULTIHEAD=false</value>
     <value type="QString">KDE_NO_IPV6=1</value>
     <value type="QString">LANG=zh_CN.UTF-8</value>
     <value type="QString">LD_LIBRARY_PATH=/home/student/qtcreator-1.3.0/lib/qtcreator:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/opt/intel/mkl/10.1.2.024/lib/em64t:/opt/intel/Compiler/11.0/083/lib/intel64:/opt/intel/Compiler/11.0/083/lib/intel64:/usr/lib64/mysql:/usr/lib64/mysql</value>
@@ -317,16 +327,18 @@
     <value type="QString">QTDIR=/home/student/qtsdk-2009.04/qt</value>
     <value type="QString">QTSDK=/home/student/qtsdk-2009.04</value>
     <value type="QString">QT_IM_MODULE=scim</value>
-    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/3280</value>
+    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/4703</value>
     <value type="QString">SHELL=/bin/bash</value>
-    <value type="QString">SHLVL=1</value>
-    <value type="QString">SSH_AGENT_PID=3319</value>
+    <value type="QString">SHLVL=2</value>
+    <value type="QString">SSH_AGENT_PID=4600</value>
     <value type="QString">SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-JbNDtt3280/agent.3280</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-VoaKDJ4561/agent.4561</value>
     <value type="QString">TERM=dumb</value>
     <value type="QString">USER=student</value>
     <value type="QString">USERNAME=student</value>
-    <value type="QString">XAUTHORITY=/tmp/.gdm0VAN7U</value>
+    <value type="QString">XAUTHORITY=/tmp/.gdmZ1AJ7U</value>
+    <value type="QString">XCURSOR_THEME=default</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/kde/xdg:/etc/xdg</value>
     <value type="QString">XMODIFIERS=@im=SCIM</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
@@ -348,16 +360,16 @@
    <valuelist key="abstractProcess.Environment" type="QVariantList">
     <value type="QString">CPATH=/opt/intel/mkl/10.1.2.024/include</value>
     <value type="QString">CWPROOT=/data1/cwp</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-FY1eg7YE4A,guid=6c7a6c40f11d1aebf15ca0004b6a614f</value>
-    <value type="QString">DESKTOP_SESSION=gnome</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-dIC8r16aIb,guid=b9c3cb9134b3d6133c6639004b6a8427</value>
+    <value type="QString">DESKTOP_SESSION=kde</value>
     <value type="QString">DISPLAY=:0.0</value>
     <value type="QString">FPATH=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">GDMSESSION=gnome</value>
+    <value type="QString">GDMSESSION=kde</value>
     <value type="QString">GDM_XSERVER_LOCATION=local</value>
-    <value type="QString">GNOME_DESKTOP_SESSION_ID=Default</value>
-    <value type="QString">GNOME_KEYRING_SOCKET=/tmp/keyring-7cF0vf/socket</value>
+    <value type="QString">GS_LIB=/home/student/.fonts</value>
+    <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/student/.gtkrc-2.0:/home/student/.kde/share/config/gtkrc-2.0</value>
     <value type="QString">GTK_IM_MODULE=scim-bridge</value>
-    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/student/.gtkrc-1.2-gnome2</value>
+    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/student/.gtkrc:/home/student/.kde/share/config/gtkrc</value>
     <value type="QString">G_BROKEN_FILENAMES=1</value>
     <value type="QString">HISTSIZE=1000</value>
     <value type="QString">HOME=/home/student</value>
@@ -366,7 +378,9 @@
     <value type="QString">INPUTRC=/etc/inputrc</value>
     <value type="QString">INTEL_LICENSE_FILE=/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses:/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses</value>
     <value type="QString">KDEDIR=/usr</value>
+    <value type="QString">KDE_FULL_SESSION=true</value>
     <value type="QString">KDE_IS_PRELINKED=1</value>
+    <value type="QString">KDE_MULTIHEAD=false</value>
     <value type="QString">KDE_NO_IPV6=1</value>
     <value type="QString">LANG=zh_CN.UTF-8</value>
     <value type="QString">LD_LIBRARY_PATH=/home/student/qtcreator-1.3.0/lib/qtcreator:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/opt/intel/mkl/10.1.2.024/lib/em64t:/opt/intel/Compiler/11.0/083/lib/intel64:/opt/intel/Compiler/11.0/083/lib/intel64:/usr/lib64/mysql:/usr/lib64/mysql</value>
@@ -383,16 +397,18 @@
     <value type="QString">QTDIR=/home/student/qtsdk-2009.04/qt</value>
     <value type="QString">QTSDK=/home/student/qtsdk-2009.04</value>
     <value type="QString">QT_IM_MODULE=scim</value>
-    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/3280</value>
+    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/4703</value>
     <value type="QString">SHELL=/bin/bash</value>
-    <value type="QString">SHLVL=1</value>
-    <value type="QString">SSH_AGENT_PID=3319</value>
+    <value type="QString">SHLVL=2</value>
+    <value type="QString">SSH_AGENT_PID=4600</value>
     <value type="QString">SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-JbNDtt3280/agent.3280</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-VoaKDJ4561/agent.4561</value>
     <value type="QString">TERM=dumb</value>
     <value type="QString">USER=student</value>
     <value type="QString">USERNAME=student</value>
-    <value type="QString">XAUTHORITY=/tmp/.gdm0VAN7U</value>
+    <value type="QString">XAUTHORITY=/tmp/.gdmZ1AJ7U</value>
+    <value type="QString">XCURSOR_THEME=default</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/kde/xdg:/etc/xdg</value>
     <value type="QString">XMODIFIERS=@im=SCIM</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
