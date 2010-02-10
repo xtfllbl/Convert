@@ -80,7 +80,7 @@
    <valuelist key="abstractProcess.Environment" type="QVariantList">
     <value type="QString">CPATH=/opt/intel/mkl/10.1.2.024/include</value>
     <value type="QString">CWPROOT=/data1/cwp</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-dIC8r16aIb,guid=b9c3cb9134b3d6133c6639004b6a8427</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-ZXMELTLtOJ,guid=1bf9b304ae4460d1dd8646004b6f6129</value>
     <value type="QString">DESKTOP_SESSION=kde</value>
     <value type="QString">DISPLAY=:0.0</value>
     <value type="QString">FPATH=/opt/intel/mkl/10.1.2.024/include</value>
@@ -117,16 +117,16 @@
     <value type="QString">QTDIR=/home/student/qtsdk-2009.04/qt</value>
     <value type="QString">QTSDK=/home/student/qtsdk-2009.04</value>
     <value type="QString">QT_IM_MODULE=scim</value>
-    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/4703</value>
+    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/3420</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SHLVL=2</value>
-    <value type="QString">SSH_AGENT_PID=4600</value>
+    <value type="QString">SSH_AGENT_PID=3317</value>
     <value type="QString">SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-VoaKDJ4561/agent.4561</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-RdJToL3278/agent.3278</value>
     <value type="QString">TERM=dumb</value>
     <value type="QString">USER=student</value>
     <value type="QString">USERNAME=student</value>
-    <value type="QString">XAUTHORITY=/tmp/.gdmZ1AJ7U</value>
+    <value type="QString">XAUTHORITY=/tmp/.gdmXNOD7U</value>
     <value type="QString">XCURSOR_THEME=default</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/kde/xdg:/etc/xdg</value>
     <value type="QString">XMODIFIERS=@im=SCIM</value>
@@ -139,7 +139,7 @@
     <value type="QString">CONFIG+=debug</value>
    </valuelist>
    <value key="abstractProcess.command" type="QString">/home/student/qtsdk-2009.04/qt/bin/qmake</value>
-   <value key="abstractProcess.enabled" type="bool">true</value>
+   <value key="abstractProcess.enabled" type="bool">false</value>
    <value key="abstractProcess.workingDirectory" type="QString">/home/student/Code/Convert</value>
    <value key="buildConfiguration" type=""></value>
   </valuemap>
@@ -151,7 +151,7 @@
    <valuelist key="abstractProcess.Environment" type="QVariantList">
     <value type="QString">CPATH=/opt/intel/mkl/10.1.2.024/include</value>
     <value type="QString">CWPROOT=/data1/cwp</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-dIC8r16aIb,guid=b9c3cb9134b3d6133c6639004b6a8427</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-ZXMELTLtOJ,guid=1bf9b304ae4460d1dd8646004b6f6129</value>
     <value type="QString">DESKTOP_SESSION=kde</value>
     <value type="QString">DISPLAY=:0.0</value>
     <value type="QString">FPATH=/opt/intel/mkl/10.1.2.024/include</value>
@@ -188,16 +188,16 @@
     <value type="QString">QTDIR=/home/student/qtsdk-2009.04/qt</value>
     <value type="QString">QTSDK=/home/student/qtsdk-2009.04</value>
     <value type="QString">QT_IM_MODULE=scim</value>
-    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/4703</value>
+    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/3420</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SHLVL=2</value>
-    <value type="QString">SSH_AGENT_PID=4600</value>
+    <value type="QString">SSH_AGENT_PID=3317</value>
     <value type="QString">SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-VoaKDJ4561/agent.4561</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-RdJToL3278/agent.3278</value>
     <value type="QString">TERM=dumb</value>
     <value type="QString">USER=student</value>
     <value type="QString">USERNAME=student</value>
-    <value type="QString">XAUTHORITY=/tmp/.gdmZ1AJ7U</value>
+    <value type="QString">XAUTHORITY=/tmp/.gdmXNOD7U</value>
     <value type="QString">XCURSOR_THEME=default</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/kde/xdg:/etc/xdg</value>
     <value type="QString">XMODIFIERS=@im=SCIM</value>

@@ -103,8 +103,8 @@ void MainWindow::on_actionOpen_triggered()
 {
     if(fOpen.isOpen())
         fOpen.close();
-    openFileName=QFileDialog::getOpenFileName(this,tr("Open Files"),"/home/student/Source/SEGY",
-                                              tr("SEGY files(*segy *Segy *SEGY *sgy *Sgy *SGY) ;; SU files(*su *SU *Su) "));
+    openFileName=QFileDialog::getOpenFileName(this,tr("Open Files"),"/home/student/Source",
+                                              tr("SEGY or SU files(*segy *Segy *SEGY *sgy *Sgy *SGY *su *SU *Su)"));
     if(openFileName=="")
         return;
     ui->labelOpenFileName->setText(openFileName);
@@ -131,12 +131,12 @@ void MainWindow::on_btnConvertTo_clicked()
 
     if(groupFunction.checkedButton()==ui->radioConvert)
     {
-        convertToFileName=QFileDialog::getSaveFileName(this,tr("Convert To SU files"),"/home/student/Source/SEGY/Su",
+        convertToFileName=QFileDialog::getSaveFileName(this,tr("Convert To SU files"),"/home/student/Source/Su",
                                                        tr("SU files(*su *Su *SU)"));
     }
     if(groupFunction.checkedButton()==ui->radioFormat)
     {
-        convertToFileName=QFileDialog::getSaveFileName(this,tr("Format To New SEGY files"),"/home/student/Source/SEGY/Format",
+        convertToFileName=QFileDialog::getSaveFileName(this,tr("Format To New SEGY files"),"/home/student/Source/SEGY",
                                                        tr("SEGY files(*segy *Segy *SEGY *sgy *Sgy *SGY)"));
     }
     ui->lineConvertToFileName->setText(convertToFileName);
@@ -178,16 +178,22 @@ void MainWindow::setData()
     if(isSu==true)
     {
         headNum=0;
+        maxTime=0;
         qDebug()<<"isSU";
         fOpen.seek(headNum);
         read>>thTemp;
         count=fOpen.size()/(240+thTemp.ns*sizeof(float));  //取得道数
+        traceLength=240+thTemp.ns*sizeof(float);    //道长
+        maxTime=thTemp.ns*thTemp.dt/1000;
+
         if(thTemp.ns>15000 || thTemp.dt>15000)
         {
             fOpen.seek(0);
             read.setByteOrder(QJDDataStream::LittleEndian); //BigEndian不对，换一种格式预读
             read>>thTemp;
             count=fOpen.size()/(240+thTemp.ns*sizeof(float));
+            traceLength=240+thTemp.ns*sizeof(float);
+            maxTime=thTemp.ns*thTemp.dt/1000;
             ui->radioOriginalLittleEndian->setChecked(1);
         }
         else
