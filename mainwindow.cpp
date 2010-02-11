@@ -2995,17 +2995,38 @@ void MainWindow::convertSkipTrace()
     read3200();
 
     //400
-    read>>bh;
-    if(ui->radioIBM->isChecked())
-        bh.format=1;
-    else if(ui->radioIEEE->isChecked())
-        bh.format=5;
-    if(flagSU==false)
+    if(isSegy==true)
     {
-        write<<bh;
+        read>>bh;
+        if(ui->radioIBM->isChecked())
+            bh.format=1;
+        else if(ui->radioIEEE->isChecked())
+            bh.format=5;
+        if(flagSU==false)
+        {
+            write<<bh;
+        }
+        qDebug()<<bh.hns<<bh.hdt;
+    }
+    if(isSu==true)
+    {
+        bhTemp.hns=thTemp.ns;
+        bhTemp.hdt=thTemp.dt;
+        if(groupFormat.checkedButton()==ui->radioIEEE)      //设置目标文件的格式,可以一次性统一设好
+        {
+            bhTemp.format=5;
+        }
+        if(groupFormat.checkedButton()==ui->radioIBM)
+        {
+            bhTemp.format=1;
+        }
+        if(flagSU==false)
+        {
+            write<<bhTemp;
+        }
+        fOpen.seek(headNum);      //转移到道头准备转换
     }
 
-    qDebug()<<bh.hns<<bh.hdt;
     int b;
     b=count/(skipTrace+1);
     qDebug()<<"b"<<b;
