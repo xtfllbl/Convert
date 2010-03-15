@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Tue Feb 9 10:55:19 2010
+** Created: Sat Feb 20 09:33:43 2010
 **      by: Qt User Interface Compiler version 4.5.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -563,6 +563,8 @@ public:
 
         combo240 = new QComboBox(groupTraceHeader);
         combo240->setObjectName(QString::fromUtf8("combo240"));
+        combo240->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLength);
+        combo240->setMinimumContentsLength(10);
 
         gridLayout_2->addWidget(combo240, 0, 1, 1, 1);
 

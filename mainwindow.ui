@@ -673,7 +673,14 @@
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QComboBox" name="combo240"/>
+            <widget class="QComboBox" name="combo240">
+             <property name="sizeAdjustPolicy">
+              <enum>QComboBox::AdjustToMinimumContentsLength</enum>
+             </property>
+             <property name="minimumContentsLength">
+              <number>10</number>
+             </property>
+            </widget>
            </item>
            <item row="0" column="2">
             <widget class="QLabel" name="label_10">

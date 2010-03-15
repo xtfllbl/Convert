@@ -10,7 +10,6 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
-
     ui->setupUi(this);
     ui->mainToolBar->setMovable(false);
     help = new Help();
@@ -24,8 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
     mdTC=new QStringListModel(this);
 
     rangeFinal.clear();
-    //    ui->listExample->setEnabled(false);
-    //    ui->listExample_2->setEnabled(false);
+
     ui->btnConvert->setEnabled(false);
     ui->groupBox_3->setEnabled(false);
     ui->groupOutput->setEnabled(false);
@@ -85,9 +83,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->groupTraceHeader->layout()->setSizeConstraint(QLayout::SetFixedSize);
     ui->groupTraceScope->layout()->setSizeConstraint(QLayout::SetFixedSize);
     ui->groupResample->layout()->setSizeConstraint(QLayout::SetFixedSize);
-
-    //    ui->combo240->setMaxVisibleItems(10);
-    //    ui->combo240->setModelColumn(3);
 
     isSegy=false;
     isSu=false;
@@ -802,8 +797,6 @@ void MainWindow::on_checkStandard_clicked(bool checked)
         {
             ui->combo240->insertItem(i,s180[i]);
         }
-        //        ui->combo240->setMaxVisibleItems(10);
-        //        ui->combo240->setModelColumn(3);
 
         ui->comboDataType->clear();
         dataType.clear();
