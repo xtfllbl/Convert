@@ -11,7 +11,7 @@
 #include "qjdsegyth.h"
 #include <QInputDialog>
 #include <QStringListModel>
-#include "help.h"
+#include "qjd_convert_help.h"
 
 namespace Ui
 {

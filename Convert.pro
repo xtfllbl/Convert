@@ -5,16 +5,16 @@ DEPENDPATH += . debug
 INCLUDEPATH += .
 CONFIG += debug
 # Input
-HEADERS += help.h \
-           mainwindow.h \
+HEADERS += qjd_convert_help.h \
+           qjd_convert_mainwindow.h \
            qjddatastream.h \
            qjdsegybh.h \
            qjdsegyth.h \
            qjdtraceheader.h
-FORMS += help.ui mainwindow.ui
-SOURCES += help.cpp \
+FORMS += qjd_convert_help.ui qjd_convert_mainwindow.ui
+SOURCES += qjd_convert_help.cpp \
            main.cpp \
-           mainwindow.cpp \
+           qjd_convert_mainwindow.cpp \
            qjddatastream.cpp \
            qjdsegybh.cpp \
            qjdsegyth.cpp \

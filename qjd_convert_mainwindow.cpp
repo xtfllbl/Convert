@@ -1,5 +1,5 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "qjd_convert_mainwindow.h"
+#include "ui_qjd_convert_mainwindow.h"
 #include <QFileDialog>
 #include <QProgressDialog>
 #include <QMessageBox>

@@ -1,5 +1,5 @@
-#include "help.h"
-#include "ui_help.h"
+#include "qjd_convert_help.h"
+#include "ui_qjd_convert_help.h"
 
 Help::Help(QWidget *parent) :
     QDialog(parent),

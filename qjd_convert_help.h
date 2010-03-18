@@ -2,7 +2,7 @@
 #define HELP_H
 
 #include <QDialog>
-#include "ui_help.h"
+#include "ui_qjd_convert_help.h"
 
 namespace Ui {
     class Help;
