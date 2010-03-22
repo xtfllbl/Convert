@@ -1,539 +1,113 @@
 <!DOCTYPE QtCreatorProject>
 <qtcreator>
  <data>
-  <variable>RunConfiguration0-BaseEnvironmentBase</variable>
-  <value type="int">2</value>
- </data>
- <data>
-  <variable>RunConfiguration0-CommandLineArguments</variable>
-  <valuelist type="QVariantList"/>
- </data>
- <data>
-  <variable>RunConfiguration0-ProFile</variable>
-  <value type="QString">Convert.pro</value>
- </data>
- <data>
-  <variable>RunConfiguration0-RunConfiguration.name</variable>
-  <value type="QString">Convert</value>
- </data>
- <data>
-  <variable>RunConfiguration0-UseDyldImageSuffix</variable>
-  <value type="bool">false</value>
- </data>
- <data>
-  <variable>RunConfiguration0-UseTerminal</variable>
-  <value type="bool">false</value>
- </data>
- <data>
-  <variable>RunConfiguration0-UserEnvironmentChanges</variable>
-  <valuelist type="QVariantList"/>
- </data>
- <data>
-  <variable>RunConfiguration0-UserSetName</variable>
-  <value type="bool">false</value>
- </data>
- <data>
-  <variable>RunConfiguration0-UserSetWorkingDirectory</variable>
-  <value type="bool">false</value>
- </data>
- <data>
-  <variable>RunConfiguration0-UserWorkingDirectory</variable>
-  <value type="QString"></value>
- </data>
- <data>
-  <variable>RunConfiguration0-type</variable>
-  <value type="QString">Qt4ProjectManager.Qt4RunConfiguration</value>
- </data>
- <data>
-  <variable>activeRunConfiguration</variable>
+  <variable>ProjectExplorer.Project.ActiveTarget</variable>
   <value type="int">0</value>
  </data>
  <data>
-  <variable>activebuildconfiguration</variable>
-  <value type="QString">Debug</value>
- </data>
- <data>
-  <variable>buildConfiguration-Debug</variable>
+  <variable>ProjectExplorer.Project.EditorSettings</variable>
   <valuemap type="QVariantMap">
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
-   <value key="QtVersionId" type="int">0</value>
-   <value key="ToolChain" type="int">0</value>
-   <value key="addQDumper" type=""></value>
-   <value key="buildConfiguration" type="int">2</value>
-   <value key="buildDirectory" type="QString">/home/student/Code/Convert</value>
+   <value key="EditorConfiguration.Codec" type="QByteArray">System</value>
   </valuemap>
  </data>
  <data>
-  <variable>buildConfiguration-Release</variable>
+  <variable>ProjectExplorer.Project.Target.0</variable>
   <valuemap type="QVariantMap">
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
-   <value key="QtVersionId" type="int">0</value>
-   <value key="ToolChain" type="int">0</value>
-   <value key="addQDumper" type=""></value>
-   <value key="buildConfiguration" type="int">0</value>
+   <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">Desktop</value>
+   <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.Target.DesktopTarget</value>
+   <value key="ProjectExplorer.Target.ActiveBuildConfiguration" type="int">0</value>
+   <value key="ProjectExplorer.Target.ActiveRunConfiguration" type="int">0</value>
+   <valuemap key="ProjectExplorer.Target.BuildConfiguration.0" type="QVariantMap">
+    <valuemap key="ProjectExplorer.BuildConfiguration.BuildStep.0" type="QVariantMap">
+     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString"></value>
+     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">QtProjectManager.QMakeBuildStep</value>
+     <valuelist key="QtProjectManager.QMakeBuildStep.QMakeArguments" type="QVariantList"/>
+    </valuemap>
+    <valuemap key="ProjectExplorer.BuildConfiguration.BuildStep.1" type="QVariantMap">
+     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString"></value>
+     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.MakeStep</value>
+     <value key="Qt4ProjectManager.MakeStep.Clean" type="bool">false</value>
+     <valuelist key="Qt4ProjectManager.MakeStep.MakeArguments" type="QVariantList"/>
+     <value key="Qt4ProjectManager.MakeStep.MakeCommand" type="QString"></value>
+    </valuemap>
+    <value key="ProjectExplorer.BuildConfiguration.BuildStepsCount" type="int">2</value>
+    <valuemap key="ProjectExplorer.BuildConfiguration.CleanStep.0" type="QVariantMap">
+     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString"></value>
+     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.MakeStep</value>
+     <value key="Qt4ProjectManager.MakeStep.Clean" type="bool">true</value>
+     <valuelist key="Qt4ProjectManager.MakeStep.MakeArguments" type="QVariantList">
+      <value type="QString">clean</value>
+     </valuelist>
+     <value key="Qt4ProjectManager.MakeStep.MakeCommand" type="QString"></value>
+    </valuemap>
+    <value key="ProjectExplorer.BuildConfiguration.CleanStepsCount" type="int">1</value>
+    <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">Debug</value>
+    <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.Qt4BuildConfiguration</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration" type="int">2</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">/home/student/Code/qjdConvert</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.ClearSystemEnvironment" type="bool">false</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.QtVersionId" type="int">3</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.ToolChain" type="int">0</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild" type="bool">false</value>
+    <valuelist key="Qt4ProjectManager.Qt4BuildConfiguration.UserEnvironmentChanges" type="QVariantList"/>
+   </valuemap>
+   <valuemap key="ProjectExplorer.Target.BuildConfiguration.1" type="QVariantMap">
+    <valuemap key="ProjectExplorer.BuildConfiguration.BuildStep.0" type="QVariantMap">
+     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString"></value>
+     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">QtProjectManager.QMakeBuildStep</value>
+     <valuelist key="QtProjectManager.QMakeBuildStep.QMakeArguments" type="QVariantList"/>
+    </valuemap>
+    <valuemap key="ProjectExplorer.BuildConfiguration.BuildStep.1" type="QVariantMap">
+     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString"></value>
+     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.MakeStep</value>
+     <value key="Qt4ProjectManager.MakeStep.Clean" type="bool">false</value>
+     <valuelist key="Qt4ProjectManager.MakeStep.MakeArguments" type="QVariantList"/>
+     <value key="Qt4ProjectManager.MakeStep.MakeCommand" type="QString"></value>
+    </valuemap>
+    <value key="ProjectExplorer.BuildConfiguration.BuildStepsCount" type="int">2</value>
+    <valuemap key="ProjectExplorer.BuildConfiguration.CleanStep.0" type="QVariantMap">
+     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString"></value>
+     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.MakeStep</value>
+     <value key="Qt4ProjectManager.MakeStep.Clean" type="bool">true</value>
+     <valuelist key="Qt4ProjectManager.MakeStep.MakeArguments" type="QVariantList">
+      <value type="QString">clean</value>
+     </valuelist>
+     <value key="Qt4ProjectManager.MakeStep.MakeCommand" type="QString"></value>
+    </valuemap>
+    <value key="ProjectExplorer.BuildConfiguration.CleanStepsCount" type="int">1</value>
+    <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">Release</value>
+    <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.Qt4BuildConfiguration</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration" type="int">0</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString"></value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.ClearSystemEnvironment" type="bool">false</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.QtVersionId" type="int">3</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.ToolChain" type="int">0</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild" type="bool">false</value>
+    <valuelist key="Qt4ProjectManager.Qt4BuildConfiguration.UserEnvironmentChanges" type="QVariantList"/>
+   </valuemap>
+   <value key="ProjectExplorer.Target.BuildConfigurationCount" type="int">2</value>
+   <valuemap key="ProjectExplorer.Target.RunConfiguration.0" type="QVariantMap">
+    <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">Convert</value>
+    <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.Qt4RunConfiguration</value>
+    <value key="Qt4ProjectManager.Qt4RunConfiguration.BaseEnvironmentBase" type="int">2</value>
+    <valuelist key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments" type="QVariantList"/>
+    <value key="Qt4ProjectManager.Qt4RunConfiguration.ProFile" type="QString">Convert.pro</value>
+    <value key="Qt4ProjectManager.Qt4RunConfiguration.UseDyldImageSuffix" type="bool">false</value>
+    <value key="Qt4ProjectManager.Qt4RunConfiguration.UseTerminal" type="bool">false</value>
+    <valuelist key="Qt4ProjectManager.Qt4RunConfiguration.UserEnvironmentChanges" type="QVariantList"/>
+    <value key="Qt4ProjectManager.Qt4RunConfiguration.UserSetName" type="bool">false</value>
+    <value key="Qt4ProjectManager.Qt4RunConfiguration.UserSetWorkingDirectory" type="bool">false</value>
+    <value key="Qt4ProjectManager.Qt4RunConfiguration.UserWorkingDirectory" type="QString"></value>
+   </valuemap>
+   <value key="ProjectExplorer.Target.RunConfigurationCount" type="int">1</value>
   </valuemap>
  </data>
  <data>
-  <variable>buildconfiguration-Debug-buildstep0</variable>
-  <valuemap type="QVariantMap">
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
-   <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">CPATH=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">CWPROOT=/data1/cwp</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-rz8ubw6nNf,guid=2fea9818fc9aea5f67f3d4004b7f3111</value>
-    <value type="QString">DESKTOP_SESSION=kde</value>
-    <value type="QString">DISPLAY=:0.0</value>
-    <value type="QString">FPATH=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">GDMSESSION=kde</value>
-    <value type="QString">GDM_XSERVER_LOCATION=local</value>
-    <value type="QString">GS_LIB=/home/student/.fonts</value>
-    <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/student/.gtkrc-2.0:/home/student/.kde/share/config/gtkrc-2.0</value>
-    <value type="QString">GTK_IM_MODULE=scim-bridge</value>
-    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/student/.gtkrc:/home/student/.kde/share/config/gtkrc</value>
-    <value type="QString">G_BROKEN_FILENAMES=1</value>
-    <value type="QString">HISTSIZE=1000</value>
-    <value type="QString">HOME=/home/student</value>
-    <value type="QString">HOSTNAME=jd04</value>
-    <value type="QString">INCLUDE=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">INPUTRC=/etc/inputrc</value>
-    <value type="QString">INTEL_LICENSE_FILE=/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses:/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses</value>
-    <value type="QString">KDEDIR=/usr</value>
-    <value type="QString">KDE_FULL_SESSION=true</value>
-    <value type="QString">KDE_IS_PRELINKED=1</value>
-    <value type="QString">KDE_MULTIHEAD=false</value>
-    <value type="QString">KDE_NO_IPV6=1</value>
-    <value type="QString">LANG=zh_CN.UTF-8</value>
-    <value type="QString">LD_LIBRARY_PATH=/home/student/qtcreator-1.3.0/lib/qtcreator:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/opt/intel/mkl/10.1.2.024/lib/em64t:/opt/intel/Compiler/11.0/083/lib/intel64:/opt/intel/Compiler/11.0/083/lib/intel64:/usr/lib64/mysql:/usr/lib64/mysql</value>
-    <value type="QString">LESSOPEN=|/usr/bin/lesspipe.sh %s</value>
-    <value type="QString">LIBRARY_PATH=/opt/intel/mkl/10.1.2.024/lib/em64t</value>
-    <value type="QString">LOGNAME=student</value>
-    <value type="QString">LS_COLORS=</value>
-    <value type="QString">MAIL=/var/spool/mail/student</value>
-    <value type="QString">MANPATH=/opt/intel/mkl/10.1.2.024/man/en_US:/opt/intel/Compiler/11.0/083/man:/opt/intel/Compiler/11.0/083/man:/usr/kerberos/man:/usr/local/share/man:/usr/share/man/zh_CN:/usr/share/man:/usr/local/man</value>
-    <value type="QString">MKLROOT=/opt/intel/mkl/10.1.2.024</value>
-    <value type="QString">NLSPATH=/opt/intel/mkl/10.1.2.024/lib/em64t/locale/%l_%t/%N:/opt/intel/Compiler/11.0/083/lib/intel64/locale/%l_%t/%N:/opt/intel/Compiler/11.0/083/lib/intel64/locale/%l_%t/%N</value>
-    <value type="QString">PATH=/home/student/qtsdk-2009.04/qt/bin:/opt/intel/Compiler/11.0/083/bin/intel64:/opt/intel/Compiler/11.0/083/bin/intel64:/usr/kerberos/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/home/student/bin:./:/data1/cwp/bin:/data1/intel/mpich/bin:/home/student/qtsdk-2009.04/bin://home/student/qtsdk-2009.04/qt/bin:/sbin:/usr/include/mysql:/home/student/bin:./:/data1/cwp/bin:/data1/intel/mpich/bin:/home/student/qtsdk-2009.04/bin://home/student/qtsdk-2009.04/qt/bin:/sbin:/usr/include/mysql</value>
-    <value type="QString">PWD=/home/student/qtsdk-2009.04/bin</value>
-    <value type="QString">QTDIR=/home/student/qtsdk-2009.04/qt</value>
-    <value type="QString">QTSDK=/home/student/qtsdk-2009.04</value>
-    <value type="QString">QT_IM_MODULE=scim</value>
-    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/3429</value>
-    <value type="QString">SHELL=/bin/bash</value>
-    <value type="QString">SHLVL=2</value>
-    <value type="QString">SSH_AGENT_PID=3326</value>
-    <value type="QString">SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-cDSNpl3287/agent.3287</value>
-    <value type="QString">TERM=dumb</value>
-    <value type="QString">USER=student</value>
-    <value type="QString">USERNAME=student</value>
-    <value type="QString">XAUTHORITY=/tmp/.gdm73777U</value>
-    <value type="QString">XCURSOR_THEME=default</value>
-    <value type="QString">XDG_CONFIG_DIRS=/etc/kde/xdg:/etc/xdg</value>
-    <value type="QString">XMODIFIERS=@im=SCIM</value>
-   </valuelist>
-   <valuelist key="abstractProcess.arguments" type="QVariantList">
-    <value type="QString">/home/student/Code/Convert/Convert.pro</value>
-    <value type="QString">-spec</value>
-    <value type="QString">linux-g++-64</value>
-    <value type="QString">-r</value>
-    <value type="QString">CONFIG+=debug</value>
-   </valuelist>
-   <value key="abstractProcess.command" type="QString">/home/student/qtsdk-2009.04/qt/bin/qmake</value>
-   <value key="abstractProcess.enabled" type="bool">false</value>
-   <value key="abstractProcess.workingDirectory" type="QString">/home/student/Code/Convert</value>
-   <value key="buildConfiguration" type=""></value>
-  </valuemap>
+  <variable>ProjectExplorer.Project.TargetCount</variable>
+  <value type="int">1</value>
  </data>
  <data>
-  <variable>buildconfiguration-Debug-buildstep1</variable>
-  <valuemap type="QVariantMap">
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
-   <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">CPATH=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">CWPROOT=/data1/cwp</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-rz8ubw6nNf,guid=2fea9818fc9aea5f67f3d4004b7f3111</value>
-    <value type="QString">DESKTOP_SESSION=kde</value>
-    <value type="QString">DISPLAY=:0.0</value>
-    <value type="QString">FPATH=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">GDMSESSION=kde</value>
-    <value type="QString">GDM_XSERVER_LOCATION=local</value>
-    <value type="QString">GS_LIB=/home/student/.fonts</value>
-    <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/student/.gtkrc-2.0:/home/student/.kde/share/config/gtkrc-2.0</value>
-    <value type="QString">GTK_IM_MODULE=scim-bridge</value>
-    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/student/.gtkrc:/home/student/.kde/share/config/gtkrc</value>
-    <value type="QString">G_BROKEN_FILENAMES=1</value>
-    <value type="QString">HISTSIZE=1000</value>
-    <value type="QString">HOME=/home/student</value>
-    <value type="QString">HOSTNAME=jd04</value>
-    <value type="QString">INCLUDE=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">INPUTRC=/etc/inputrc</value>
-    <value type="QString">INTEL_LICENSE_FILE=/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses:/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses</value>
-    <value type="QString">KDEDIR=/usr</value>
-    <value type="QString">KDE_FULL_SESSION=true</value>
-    <value type="QString">KDE_IS_PRELINKED=1</value>
-    <value type="QString">KDE_MULTIHEAD=false</value>
-    <value type="QString">KDE_NO_IPV6=1</value>
-    <value type="QString">LANG=zh_CN.UTF-8</value>
-    <value type="QString">LD_LIBRARY_PATH=/home/student/qtcreator-1.3.0/lib/qtcreator:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/opt/intel/mkl/10.1.2.024/lib/em64t:/opt/intel/Compiler/11.0/083/lib/intel64:/opt/intel/Compiler/11.0/083/lib/intel64:/usr/lib64/mysql:/usr/lib64/mysql</value>
-    <value type="QString">LESSOPEN=|/usr/bin/lesspipe.sh %s</value>
-    <value type="QString">LIBRARY_PATH=/opt/intel/mkl/10.1.2.024/lib/em64t</value>
-    <value type="QString">LOGNAME=student</value>
-    <value type="QString">LS_COLORS=</value>
-    <value type="QString">MAIL=/var/spool/mail/student</value>
-    <value type="QString">MANPATH=/opt/intel/mkl/10.1.2.024/man/en_US:/opt/intel/Compiler/11.0/083/man:/opt/intel/Compiler/11.0/083/man:/usr/kerberos/man:/usr/local/share/man:/usr/share/man/zh_CN:/usr/share/man:/usr/local/man</value>
-    <value type="QString">MKLROOT=/opt/intel/mkl/10.1.2.024</value>
-    <value type="QString">NLSPATH=/opt/intel/mkl/10.1.2.024/lib/em64t/locale/%l_%t/%N:/opt/intel/Compiler/11.0/083/lib/intel64/locale/%l_%t/%N:/opt/intel/Compiler/11.0/083/lib/intel64/locale/%l_%t/%N</value>
-    <value type="QString">PATH=/home/student/qtsdk-2009.04/qt/bin:/opt/intel/Compiler/11.0/083/bin/intel64:/opt/intel/Compiler/11.0/083/bin/intel64:/usr/kerberos/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/home/student/bin:./:/data1/cwp/bin:/data1/intel/mpich/bin:/home/student/qtsdk-2009.04/bin://home/student/qtsdk-2009.04/qt/bin:/sbin:/usr/include/mysql:/home/student/bin:./:/data1/cwp/bin:/data1/intel/mpich/bin:/home/student/qtsdk-2009.04/bin://home/student/qtsdk-2009.04/qt/bin:/sbin:/usr/include/mysql</value>
-    <value type="QString">PWD=/home/student/qtsdk-2009.04/bin</value>
-    <value type="QString">QTDIR=/home/student/qtsdk-2009.04/qt</value>
-    <value type="QString">QTSDK=/home/student/qtsdk-2009.04</value>
-    <value type="QString">QT_IM_MODULE=scim</value>
-    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/3429</value>
-    <value type="QString">SHELL=/bin/bash</value>
-    <value type="QString">SHLVL=2</value>
-    <value type="QString">SSH_AGENT_PID=3326</value>
-    <value type="QString">SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-cDSNpl3287/agent.3287</value>
-    <value type="QString">TERM=dumb</value>
-    <value type="QString">USER=student</value>
-    <value type="QString">USERNAME=student</value>
-    <value type="QString">XAUTHORITY=/tmp/.gdm73777U</value>
-    <value type="QString">XCURSOR_THEME=default</value>
-    <value type="QString">XDG_CONFIG_DIRS=/etc/kde/xdg:/etc/xdg</value>
-    <value type="QString">XMODIFIERS=@im=SCIM</value>
-   </valuelist>
-   <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
-   <valuelist key="abstractProcess.arguments" type="QVariantList">
-    <value type="QString">-w</value>
-   </valuelist>
-   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
-   <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">/home/student/Code/Convert</value>
-  </valuemap>
- </data>
- <data>
-  <variable>buildconfiguration-Debug-cleanstep0</variable>
-  <valuemap type="QVariantMap">
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
-   <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">CPATH=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">CWPROOT=/data1/cwp</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-3x8AscMvsE,guid=032cd7a5491042d7e1163a004b580d59</value>
-    <value type="QString">DESKTOP_SESSION=kde</value>
-    <value type="QString">DISPLAY=:0.0</value>
-    <value type="QString">FPATH=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">GDMSESSION=kde</value>
-    <value type="QString">GDM_XSERVER_LOCATION=local</value>
-    <value type="QString">GS_LIB=/home/student/.fonts</value>
-    <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/student/.gtkrc-2.0:/home/student/.kde/share/config/gtkrc-2.0</value>
-    <value type="QString">GTK_IM_MODULE=scim-bridge</value>
-    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/student/.gtkrc:/home/student/.kde/share/config/gtkrc</value>
-    <value type="QString">G_BROKEN_FILENAMES=1</value>
-    <value type="QString">HISTSIZE=1000</value>
-    <value type="QString">HOME=/home/student</value>
-    <value type="QString">HOSTNAME=jd04</value>
-    <value type="QString">INCLUDE=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">INPUTRC=/etc/inputrc</value>
-    <value type="QString">INTEL_LICENSE_FILE=/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses:/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses</value>
-    <value type="QString">KDEDIR=/usr</value>
-    <value type="QString">KDE_FULL_SESSION=true</value>
-    <value type="QString">KDE_IS_PRELINKED=1</value>
-    <value type="QString">KDE_MULTIHEAD=false</value>
-    <value type="QString">KDE_NO_IPV6=1</value>
-    <value type="QString">LANG=zh_CN.UTF-8</value>
-    <value type="QString">LD_LIBRARY_PATH=/home/student/qtcreator-1.3.0/lib/qtcreator:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/opt/intel/mkl/10.1.2.024/lib/em64t:/opt/intel/Compiler/11.0/083/lib/intel64:/opt/intel/Compiler/11.0/083/lib/intel64:/usr/lib64/mysql:/usr/lib64/mysql</value>
-    <value type="QString">LESSOPEN=|/usr/bin/lesspipe.sh %s</value>
-    <value type="QString">LIBRARY_PATH=/opt/intel/mkl/10.1.2.024/lib/em64t</value>
-    <value type="QString">LOGNAME=student</value>
-    <value type="QString">LS_COLORS=</value>
-    <value type="QString">MAIL=/var/spool/mail/student</value>
-    <value type="QString">MANPATH=/opt/intel/mkl/10.1.2.024/man/en_US:/opt/intel/Compiler/11.0/083/man:/opt/intel/Compiler/11.0/083/man:/usr/kerberos/man:/usr/local/share/man:/usr/share/man/zh_CN:/usr/share/man:/usr/local/man</value>
-    <value type="QString">MKLROOT=/opt/intel/mkl/10.1.2.024</value>
-    <value type="QString">NLSPATH=/opt/intel/mkl/10.1.2.024/lib/em64t/locale/%l_%t/%N:/opt/intel/Compiler/11.0/083/lib/intel64/locale/%l_%t/%N:/opt/intel/Compiler/11.0/083/lib/intel64/locale/%l_%t/%N</value>
-    <value type="QString">PATH=/home/student/qtsdk-2009.04/qt/bin:/opt/intel/Compiler/11.0/083/bin/intel64:/opt/intel/Compiler/11.0/083/bin/intel64:/usr/kerberos/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/home/student/bin:./:/data1/cwp/bin:/data1/intel/mpich/bin:/home/student/qtsdk-2009.04/bin://home/student/qtsdk-2009.04/qt/bin:/sbin:/usr/include/mysql:/home/student/bin:./:/data1/cwp/bin:/data1/intel/mpich/bin:/home/student/qtsdk-2009.04/bin://home/student/qtsdk-2009.04/qt/bin:/sbin:/usr/include/mysql</value>
-    <value type="QString">PWD=/home/student/qtsdk-2009.04/bin</value>
-    <value type="QString">QTDIR=/home/student/qtsdk-2009.04/qt</value>
-    <value type="QString">QTSDK=/home/student/qtsdk-2009.04</value>
-    <value type="QString">QT_IM_MODULE=scim</value>
-    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/1332</value>
-    <value type="QString">SHELL=/bin/bash</value>
-    <value type="QString">SHLVL=2</value>
-    <value type="QString">SSH_AGENT_PID=1229</value>
-    <value type="QString">SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-jhpRdn1190/agent.1190</value>
-    <value type="QString">TERM=dumb</value>
-    <value type="QString">USER=student</value>
-    <value type="QString">USERNAME=student</value>
-    <value type="QString">XAUTHORITY=/tmp/.gdmYZ0R6U</value>
-    <value type="QString">XCURSOR_THEME=default</value>
-    <value type="QString">XDG_CONFIG_DIRS=/etc/kde/xdg:/etc/xdg</value>
-    <value type="QString">XMODIFIERS=@im=SCIM</value>
-   </valuelist>
-   <value key="abstractProcess.IgnoreReturnValue" type="bool">true</value>
-   <valuelist key="abstractProcess.arguments" type="QVariantList">
-    <value type="QString">clean</value>
-    <value type="QString">-w</value>
-   </valuelist>
-   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
-   <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">/home/student/Code/Convert</value>
-   <value key="cleanConfig" type="bool">true</value>
-   <valuelist key="makeargs" type="QVariantList">
-    <value type="QString">clean</value>
-   </valuelist>
-  </valuemap>
- </data>
- <data>
-  <variable>buildconfiguration-Release-buildstep0</variable>
-  <valuemap type="QVariantMap">
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
-   <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">CPATH=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">CWPROOT=/data1/cwp</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-dIC8r16aIb,guid=b9c3cb9134b3d6133c6639004b6a8427</value>
-    <value type="QString">DESKTOP_SESSION=kde</value>
-    <value type="QString">DISPLAY=:0.0</value>
-    <value type="QString">FPATH=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">GDMSESSION=kde</value>
-    <value type="QString">GDM_XSERVER_LOCATION=local</value>
-    <value type="QString">GS_LIB=/home/student/.fonts</value>
-    <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/student/.gtkrc-2.0:/home/student/.kde/share/config/gtkrc-2.0</value>
-    <value type="QString">GTK_IM_MODULE=scim-bridge</value>
-    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/student/.gtkrc:/home/student/.kde/share/config/gtkrc</value>
-    <value type="QString">G_BROKEN_FILENAMES=1</value>
-    <value type="QString">HISTSIZE=1000</value>
-    <value type="QString">HOME=/home/student</value>
-    <value type="QString">HOSTNAME=jd04</value>
-    <value type="QString">INCLUDE=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">INPUTRC=/etc/inputrc</value>
-    <value type="QString">INTEL_LICENSE_FILE=/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses:/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses</value>
-    <value type="QString">KDEDIR=/usr</value>
-    <value type="QString">KDE_FULL_SESSION=true</value>
-    <value type="QString">KDE_IS_PRELINKED=1</value>
-    <value type="QString">KDE_MULTIHEAD=false</value>
-    <value type="QString">KDE_NO_IPV6=1</value>
-    <value type="QString">LANG=zh_CN.UTF-8</value>
-    <value type="QString">LD_LIBRARY_PATH=/home/student/qtcreator-1.3.0/lib/qtcreator:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/opt/intel/mkl/10.1.2.024/lib/em64t:/opt/intel/Compiler/11.0/083/lib/intel64:/opt/intel/Compiler/11.0/083/lib/intel64:/usr/lib64/mysql:/usr/lib64/mysql</value>
-    <value type="QString">LESSOPEN=|/usr/bin/lesspipe.sh %s</value>
-    <value type="QString">LIBRARY_PATH=/opt/intel/mkl/10.1.2.024/lib/em64t</value>
-    <value type="QString">LOGNAME=student</value>
-    <value type="QString">LS_COLORS=</value>
-    <value type="QString">MAIL=/var/spool/mail/student</value>
-    <value type="QString">MANPATH=/opt/intel/mkl/10.1.2.024/man/en_US:/opt/intel/Compiler/11.0/083/man:/opt/intel/Compiler/11.0/083/man:/usr/kerberos/man:/usr/local/share/man:/usr/share/man/zh_CN:/usr/share/man:/usr/local/man</value>
-    <value type="QString">MKLROOT=/opt/intel/mkl/10.1.2.024</value>
-    <value type="QString">NLSPATH=/opt/intel/mkl/10.1.2.024/lib/em64t/locale/%l_%t/%N:/opt/intel/Compiler/11.0/083/lib/intel64/locale/%l_%t/%N:/opt/intel/Compiler/11.0/083/lib/intel64/locale/%l_%t/%N</value>
-    <value type="QString">PATH=/home/student/qtsdk-2009.04/qt/bin:/opt/intel/Compiler/11.0/083/bin/intel64:/opt/intel/Compiler/11.0/083/bin/intel64:/usr/kerberos/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/home/student/bin:./:/data1/cwp/bin:/data1/intel/mpich/bin:/home/student/qtsdk-2009.04/bin://home/student/qtsdk-2009.04/qt/bin:/sbin:/usr/include/mysql:/home/student/bin:./:/data1/cwp/bin:/data1/intel/mpich/bin:/home/student/qtsdk-2009.04/bin://home/student/qtsdk-2009.04/qt/bin:/sbin:/usr/include/mysql</value>
-    <value type="QString">PWD=/home/student/qtsdk-2009.04/bin</value>
-    <value type="QString">QTDIR=/home/student/qtsdk-2009.04/qt</value>
-    <value type="QString">QTSDK=/home/student/qtsdk-2009.04</value>
-    <value type="QString">QT_IM_MODULE=scim</value>
-    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/4703</value>
-    <value type="QString">SHELL=/bin/bash</value>
-    <value type="QString">SHLVL=2</value>
-    <value type="QString">SSH_AGENT_PID=4600</value>
-    <value type="QString">SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-VoaKDJ4561/agent.4561</value>
-    <value type="QString">TERM=dumb</value>
-    <value type="QString">USER=student</value>
-    <value type="QString">USERNAME=student</value>
-    <value type="QString">XAUTHORITY=/tmp/.gdmZ1AJ7U</value>
-    <value type="QString">XCURSOR_THEME=default</value>
-    <value type="QString">XDG_CONFIG_DIRS=/etc/kde/xdg:/etc/xdg</value>
-    <value type="QString">XMODIFIERS=@im=SCIM</value>
-   </valuelist>
-   <valuelist key="abstractProcess.arguments" type="QVariantList">
-    <value type="QString">/home/student/Code/Convert/Convert.pro</value>
-    <value type="QString">-spec</value>
-    <value type="QString">linux-g++-64</value>
-    <value type="QString">-r</value>
-   </valuelist>
-   <value key="abstractProcess.command" type="QString">/home/student/qtsdk-2009.04/qt/bin/qmake</value>
-   <value key="abstractProcess.enabled" type="bool">false</value>
-   <value key="abstractProcess.workingDirectory" type="QString">/home/student/Code/Convert</value>
-   <value key="buildConfiguration" type=""></value>
-  </valuemap>
- </data>
- <data>
-  <variable>buildconfiguration-Release-buildstep1</variable>
-  <valuemap type="QVariantMap">
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
-   <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">CPATH=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">CWPROOT=/data1/cwp</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-dIC8r16aIb,guid=b9c3cb9134b3d6133c6639004b6a8427</value>
-    <value type="QString">DESKTOP_SESSION=kde</value>
-    <value type="QString">DISPLAY=:0.0</value>
-    <value type="QString">FPATH=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">GDMSESSION=kde</value>
-    <value type="QString">GDM_XSERVER_LOCATION=local</value>
-    <value type="QString">GS_LIB=/home/student/.fonts</value>
-    <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/student/.gtkrc-2.0:/home/student/.kde/share/config/gtkrc-2.0</value>
-    <value type="QString">GTK_IM_MODULE=scim-bridge</value>
-    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/student/.gtkrc:/home/student/.kde/share/config/gtkrc</value>
-    <value type="QString">G_BROKEN_FILENAMES=1</value>
-    <value type="QString">HISTSIZE=1000</value>
-    <value type="QString">HOME=/home/student</value>
-    <value type="QString">HOSTNAME=jd04</value>
-    <value type="QString">INCLUDE=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">INPUTRC=/etc/inputrc</value>
-    <value type="QString">INTEL_LICENSE_FILE=/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses:/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses</value>
-    <value type="QString">KDEDIR=/usr</value>
-    <value type="QString">KDE_FULL_SESSION=true</value>
-    <value type="QString">KDE_IS_PRELINKED=1</value>
-    <value type="QString">KDE_MULTIHEAD=false</value>
-    <value type="QString">KDE_NO_IPV6=1</value>
-    <value type="QString">LANG=zh_CN.UTF-8</value>
-    <value type="QString">LD_LIBRARY_PATH=/home/student/qtcreator-1.3.0/lib/qtcreator:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/opt/intel/mkl/10.1.2.024/lib/em64t:/opt/intel/Compiler/11.0/083/lib/intel64:/opt/intel/Compiler/11.0/083/lib/intel64:/usr/lib64/mysql:/usr/lib64/mysql</value>
-    <value type="QString">LESSOPEN=|/usr/bin/lesspipe.sh %s</value>
-    <value type="QString">LIBRARY_PATH=/opt/intel/mkl/10.1.2.024/lib/em64t</value>
-    <value type="QString">LOGNAME=student</value>
-    <value type="QString">LS_COLORS=</value>
-    <value type="QString">MAIL=/var/spool/mail/student</value>
-    <value type="QString">MANPATH=/opt/intel/mkl/10.1.2.024/man/en_US:/opt/intel/Compiler/11.0/083/man:/opt/intel/Compiler/11.0/083/man:/usr/kerberos/man:/usr/local/share/man:/usr/share/man/zh_CN:/usr/share/man:/usr/local/man</value>
-    <value type="QString">MKLROOT=/opt/intel/mkl/10.1.2.024</value>
-    <value type="QString">NLSPATH=/opt/intel/mkl/10.1.2.024/lib/em64t/locale/%l_%t/%N:/opt/intel/Compiler/11.0/083/lib/intel64/locale/%l_%t/%N:/opt/intel/Compiler/11.0/083/lib/intel64/locale/%l_%t/%N</value>
-    <value type="QString">PATH=/home/student/qtsdk-2009.04/qt/bin:/opt/intel/Compiler/11.0/083/bin/intel64:/opt/intel/Compiler/11.0/083/bin/intel64:/usr/kerberos/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/home/student/bin:./:/data1/cwp/bin:/data1/intel/mpich/bin:/home/student/qtsdk-2009.04/bin://home/student/qtsdk-2009.04/qt/bin:/sbin:/usr/include/mysql:/home/student/bin:./:/data1/cwp/bin:/data1/intel/mpich/bin:/home/student/qtsdk-2009.04/bin://home/student/qtsdk-2009.04/qt/bin:/sbin:/usr/include/mysql</value>
-    <value type="QString">PWD=/home/student/qtsdk-2009.04/bin</value>
-    <value type="QString">QTDIR=/home/student/qtsdk-2009.04/qt</value>
-    <value type="QString">QTSDK=/home/student/qtsdk-2009.04</value>
-    <value type="QString">QT_IM_MODULE=scim</value>
-    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/4703</value>
-    <value type="QString">SHELL=/bin/bash</value>
-    <value type="QString">SHLVL=2</value>
-    <value type="QString">SSH_AGENT_PID=4600</value>
-    <value type="QString">SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-VoaKDJ4561/agent.4561</value>
-    <value type="QString">TERM=dumb</value>
-    <value type="QString">USER=student</value>
-    <value type="QString">USERNAME=student</value>
-    <value type="QString">XAUTHORITY=/tmp/.gdmZ1AJ7U</value>
-    <value type="QString">XCURSOR_THEME=default</value>
-    <value type="QString">XDG_CONFIG_DIRS=/etc/kde/xdg:/etc/xdg</value>
-    <value type="QString">XMODIFIERS=@im=SCIM</value>
-   </valuelist>
-   <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
-   <valuelist key="abstractProcess.arguments" type="QVariantList">
-    <value type="QString">-w</value>
-   </valuelist>
-   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
-   <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">/home/student/Code/Convert</value>
-  </valuemap>
- </data>
- <data>
-  <variable>buildconfiguration-Release-cleanstep0</variable>
-  <valuemap type="QVariantMap">
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
-   <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">CPATH=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">CWPROOT=/data1/cwp</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-FY1eg7YE4A,guid=6c7a6c40f11d1aebf15ca0004b6a614f</value>
-    <value type="QString">DESKTOP_SESSION=gnome</value>
-    <value type="QString">DISPLAY=:0.0</value>
-    <value type="QString">FPATH=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">GDMSESSION=gnome</value>
-    <value type="QString">GDM_XSERVER_LOCATION=local</value>
-    <value type="QString">GNOME_DESKTOP_SESSION_ID=Default</value>
-    <value type="QString">GNOME_KEYRING_SOCKET=/tmp/keyring-7cF0vf/socket</value>
-    <value type="QString">GTK_IM_MODULE=scim-bridge</value>
-    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/student/.gtkrc-1.2-gnome2</value>
-    <value type="QString">G_BROKEN_FILENAMES=1</value>
-    <value type="QString">HISTSIZE=1000</value>
-    <value type="QString">HOME=/home/student</value>
-    <value type="QString">HOSTNAME=jd04</value>
-    <value type="QString">INCLUDE=/opt/intel/mkl/10.1.2.024/include</value>
-    <value type="QString">INPUTRC=/etc/inputrc</value>
-    <value type="QString">INTEL_LICENSE_FILE=/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses:/opt/intel/Compiler/11.0/083/licenses:/opt/intel/licenses:/home/student/intel/licenses</value>
-    <value type="QString">KDEDIR=/usr</value>
-    <value type="QString">KDE_IS_PRELINKED=1</value>
-    <value type="QString">KDE_NO_IPV6=1</value>
-    <value type="QString">LANG=zh_CN.UTF-8</value>
-    <value type="QString">LD_LIBRARY_PATH=/home/student/qtcreator-1.3.0/lib/qtcreator:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/usr/lib64:/home/student/qtsdk-2009.04/qt/lib:/home/student/qwt-5.2.0/lib:/data1/cwp/lib:/opt/intel/mkl/10.1.2.024/lib/em64t:/opt/intel/Compiler/11.0/083/lib/intel64:/opt/intel/Compiler/11.0/083/lib/intel64:/usr/lib64/mysql:/usr/lib64/mysql</value>
-    <value type="QString">LESSOPEN=|/usr/bin/lesspipe.sh %s</value>
-    <value type="QString">LIBRARY_PATH=/opt/intel/mkl/10.1.2.024/lib/em64t</value>
-    <value type="QString">LOGNAME=student</value>
-    <value type="QString">LS_COLORS=</value>
-    <value type="QString">MAIL=/var/spool/mail/student</value>
-    <value type="QString">MANPATH=/opt/intel/mkl/10.1.2.024/man/en_US:/opt/intel/Compiler/11.0/083/man:/opt/intel/Compiler/11.0/083/man:/usr/kerberos/man:/usr/local/share/man:/usr/share/man/zh_CN:/usr/share/man:/usr/local/man</value>
-    <value type="QString">MKLROOT=/opt/intel/mkl/10.1.2.024</value>
-    <value type="QString">NLSPATH=/opt/intel/mkl/10.1.2.024/lib/em64t/locale/%l_%t/%N:/opt/intel/Compiler/11.0/083/lib/intel64/locale/%l_%t/%N:/opt/intel/Compiler/11.0/083/lib/intel64/locale/%l_%t/%N</value>
-    <value type="QString">PATH=/home/student/qtsdk-2009.04/qt/bin:/opt/intel/Compiler/11.0/083/bin/intel64:/opt/intel/Compiler/11.0/083/bin/intel64:/usr/kerberos/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/home/student/bin:./:/data1/cwp/bin:/data1/intel/mpich/bin:/home/student/qtsdk-2009.04/bin://home/student/qtsdk-2009.04/qt/bin:/sbin:/usr/include/mysql:/home/student/bin:./:/data1/cwp/bin:/data1/intel/mpich/bin:/home/student/qtsdk-2009.04/bin://home/student/qtsdk-2009.04/qt/bin:/sbin:/usr/include/mysql</value>
-    <value type="QString">PWD=/home/student/qtsdk-2009.04/bin</value>
-    <value type="QString">QTDIR=/home/student/qtsdk-2009.04/qt</value>
-    <value type="QString">QTSDK=/home/student/qtsdk-2009.04</value>
-    <value type="QString">QT_IM_MODULE=scim</value>
-    <value type="QString">SESSION_MANAGER=local/jd04:/tmp/.ICE-unix/3280</value>
-    <value type="QString">SHELL=/bin/bash</value>
-    <value type="QString">SHLVL=1</value>
-    <value type="QString">SSH_AGENT_PID=3319</value>
-    <value type="QString">SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-JbNDtt3280/agent.3280</value>
-    <value type="QString">TERM=dumb</value>
-    <value type="QString">USER=student</value>
-    <value type="QString">USERNAME=student</value>
-    <value type="QString">XAUTHORITY=/tmp/.gdm0VAN7U</value>
-    <value type="QString">XMODIFIERS=@im=SCIM</value>
-   </valuelist>
-   <value key="abstractProcess.IgnoreReturnValue" type="bool">true</value>
-   <valuelist key="abstractProcess.arguments" type="QVariantList">
-    <value type="QString">clean</value>
-    <value type="QString">-w</value>
-   </valuelist>
-   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
-   <value key="abstractProcess.enabled" type="bool">true</value>
-   <value key="abstractProcess.workingDirectory" type="QString">/home/student/Code/Convert</value>
-   <value key="cleanConfig" type="bool">true</value>
-   <valuelist key="makeargs" type="QVariantList">
-    <value type="QString">clean</value>
-   </valuelist>
-  </valuemap>
- </data>
- <data>
-  <variable>buildconfigurations</variable>
-  <valuelist type="QVariantList">
-   <value type="QString">Debug</value>
-   <value type="QString">Release</value>
-  </valuelist>
- </data>
- <data>
-  <variable>buildstep0</variable>
-  <valuemap type="QVariantMap">
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString"></value>
-   <value key="mkspec" type="QString"></value>
-  </valuemap>
- </data>
- <data>
-  <variable>buildstep1</variable>
-  <valuemap type="QVariantMap">
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString"></value>
-  </valuemap>
- </data>
- <data>
-  <variable>buildsteps</variable>
-  <valuelist type="QVariantList">
-   <value type="QString">trolltech.qt4projectmanager.qmake</value>
-   <value type="QString">trolltech.qt4projectmanager.make</value>
-  </valuelist>
- </data>
- <data>
-  <variable>cleanstep0</variable>
-  <valuemap type="QVariantMap">
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString"></value>
-   <value key="clean" type="bool">true</value>
-  </valuemap>
- </data>
- <data>
-  <variable>cleansteps</variable>
-  <valuelist type="QVariantList">
-   <value type="QString">trolltech.qt4projectmanager.make</value>
-  </valuelist>
- </data>
- <data>
-  <variable>defaultFileEncoding</variable>
-  <value type="QByteArray">System</value>
- </data>
- <data>
-  <variable>project</variable>
-  <valuemap type="QVariantMap"/>
+  <variable>ProjectExplorer.Project.Updater.FileVersion</variable>
+  <value type="int">2</value>
  </data>
 </qtcreator>

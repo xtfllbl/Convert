@@ -1,6 +1,6 @@
 # do not use release version, there have some problem
 TEMPLATE = app
-TARGET = 
+TARGET = Convert
 DEPENDPATH += . debug
 INCLUDEPATH += .
 CONFIG += debug
