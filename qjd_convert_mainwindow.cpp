@@ -98,7 +98,7 @@ void MainWindow::on_actionOpen_triggered()
 {
     if(fOpen.isOpen())
         fOpen.close();
-    openFileName=QFileDialog::getOpenFileName(this,tr("Open Files"),"/home/student/Source",
+    openFileName=QFileDialog::getOpenFileName(this,tr("Open Files"),"/home/xtf/Source",
                                               tr("SEGY or SU files(*segy *Segy *SEGY *sgy *Sgy *SGY *su *SU *Su)"));
     if(openFileName=="")
         return;
@@ -135,7 +135,6 @@ void MainWindow::on_btnConvertTo_clicked()
                                                        tr("SEGY files(*segy *Segy *SEGY *sgy *Sgy *SGY)"));
     }
     ui->lineConvertToFileName->setText(convertToFileName);
-
 }
 
 void MainWindow::depend()

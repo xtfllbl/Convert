@@ -4,6 +4,8 @@ TARGET = Convert
 DEPENDPATH += . debug
 INCLUDEPATH += .
 CONFIG += debug
+QMAKE_LFAGS+= -static
+
 # Input
 HEADERS += qjd_convert_help.h \
            qjd_convert_mainwindow.h \
