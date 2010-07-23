@@ -3,7 +3,7 @@
 #include <QDebug>
 QJDDataStream::QJDDataStream()
         : QDataStream(), df(QJDDataStream::IEEE)
-{}
+{setVersion(QDataStream::Qt_4_5);}  //避免一些问题
 
 QJDDataStream::QJDDataStream( QByteArray a )
         : QDataStream( a), df(QJDDataStream::IEEE)
