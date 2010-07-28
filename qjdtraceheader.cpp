@@ -539,6 +539,4 @@ void QJDTraceHeader::swap_header()
         QJD::qjdswap_short_2(&sMU);
         QJD::qjdswap_int_4(&reserved01);
         QJD::qjdswap_int_4(&reserved02);
-       
-
 }

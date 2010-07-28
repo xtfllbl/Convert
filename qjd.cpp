@@ -42,17 +42,17 @@ uint QJD::qjdFileSize(quint64 total, int type) {
     qDebug() << "qjdFileSize: "<< total;
 
     switch (type) {
- case 1:
+    case 1:
         return CDSIZE;
         break;
- case 2:
+    case 2:
         return NFSIZE;
         break;
- case 3:
+    case 3:
         return NFSIZE;
         //return MFSIZE;
         break;
- default:
+    default:
         return NFSIZE;
     }
 }
@@ -428,6 +428,7 @@ swap_double_8           swap a double
     *(tnd8+4)=tnc;
 }
 
+/// 最后一个endian还包含了转换功能，可以无视，设置为1不转换
 void QJD::qjdibm2ieee(int *from, int *to, int n, int endian)
         /***********************************************************************
 ibm_to_float - convert between 32 bit IBM and IEEE floating numbers
@@ -450,7 +451,6 @@ Only integer shifting and masking are used.
 *************************************************************************
 Credits: CWP: Brian Sumner,  c.1985
 *************************************************************************/
-
 {
 
     register int fconv, fmant, i, t;
@@ -480,6 +480,7 @@ Credits: CWP: Brian Sumner,  c.1985
     return;
 
 }
+
 void QJD::qjdieee2ibm(int *from,int *to, int n, int endian)
         /**********************************************************************
  float_to_ibm - convert between 32 bit IBM and IEEE floating numbers

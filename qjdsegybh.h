@@ -14,6 +14,8 @@ public:
     ~QJDSegyBH(void);
 
     void init();
+    void swap_header();
+
     bool readData(const QString& fn,QJDDataStream::ByteOrder bo=QJDDataStream::BigEndian,QJDDataStream::DataFormat df=QJDDataStream::IBM);
     bool writeData(const QString& fn,QJDDataStream::ByteOrder bo=QJDDataStream::BigEndian,QJDDataStream::DataFormat df=QJDDataStream::IBM);
 
