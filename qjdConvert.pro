@@ -12,7 +12,8 @@ HEADERS += qjd_convert_help.h \
            qjddatastream.h \
            qjdsegybh.h \
            qjdsegyth.h \
-           qjdtraceheader.h
+           qjdtraceheader.h \
+    qjd.h
 FORMS += qjd_convert_help.ui qjd_convert_mainwindow.ui
 SOURCES += qjd_convert_help.cpp \
            main.cpp \
@@ -20,6 +21,7 @@ SOURCES += qjd_convert_help.cpp \
            qjddatastream.cpp \
            qjdsegybh.cpp \
            qjdsegyth.cpp \
-           qjdtraceheader.cpp
+           qjdtraceheader.cpp \
+    qjd.cpp
 RESOURCES += image.qrc
 TRANSLATIONS += convert_en.ts convert_zh.ts

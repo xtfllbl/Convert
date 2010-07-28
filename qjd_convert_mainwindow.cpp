@@ -108,6 +108,7 @@ void MainWindow::on_actionOpen_triggered()
         QMessageBox::warning(this,tr("Open Error"),tr("The file can`t be opened as excepted."));
     count=0;
 
+    /// 从这里就开始有可能需要变化
     read.setDevice(&fOpen);
     read.setByteOrder(QJDDataStream::BigEndian);        //设置默认为big，如果为little则再次进行计算
     setData();

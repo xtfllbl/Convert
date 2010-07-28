@@ -5,8 +5,9 @@
 #include <QFile>
 #include <QDebug>
 #include <QButtonGroup>
-#include "qjdtraceheader.h"
+#include "qjd.h"
 #include "qjddatastream.h"
+#include "qjdtraceheader.h"
 #include "qjdsegybh.h"
 #include "qjdsegyth.h"
 #include <QInputDialog>
@@ -54,6 +55,7 @@ private:
     QJDTraceHeader th;
     QByteArray bty;
     QJDSegyBH bh;
+//    QJD qjd;  //受保护，直接调用就是
 
 
     bool flagBHis0;     //判断文件中是否信息不完整
