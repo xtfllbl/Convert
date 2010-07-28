@@ -169,23 +169,30 @@ void MainWindow::setData()
         isSegy=true;
 
     //开始预读
-    //SU
+    //SU,无3600
     if(isSu==true)
     {
         headNum=0;
         maxTime=0;
         qDebug()<<"isSU";
         fOpen.seek(headNum);
-        read>>thTemp;
+        /// read>>thTemp;
+        read.readRawData((char *)&thTemp,240);  /// 这个肯定是little的,需要转换
+        thTemp.swap_header();  /// 如果是big则需要转换
+
         count=fOpen.size()/(240+thTemp.ns*sizeof(float));  //取得道数
         traceLength=240+thTemp.ns*sizeof(float);    //道长
         maxTime=thTemp.ns*thTemp.dt/1000;
+        qDebug()<<thTemp.ns<<thTemp.dt<<count<<"1";
 
         if(thTemp.ns>15000 || thTemp.dt>15000)
         {
             fOpen.seek(0);
             read.setByteOrder(QJDDataStream::LittleEndian); //BigEndian不对，换一种格式预读
-            read>>thTemp;
+            /// read>>thTemp;
+            read.readRawData((char *)&thTemp,240);  /// 这个肯定是little的,需要转换
+//            thTemp.swap_header();  /// 如果不是big则不需要转换
+
             count=fOpen.size()/(240+thTemp.ns*sizeof(float));
             traceLength=240+thTemp.ns*sizeof(float);
             maxTime=thTemp.ns*thTemp.dt/1000;
@@ -195,7 +202,7 @@ void MainWindow::setData()
         {
             ui->radioOriginalBigEndian->setChecked(1);
         }
-        qDebug()<<thTemp.ns<<thTemp.dt<<count;
+        qDebug()<<thTemp.ns<<thTemp.dt<<count<<"2";
 
         QMessageBox a;
         a.setText(tr("SU file do not exist <DataFormat> information, the programe will set the IBM for default!"));
@@ -225,13 +232,16 @@ void MainWindow::setData()
         count=0;
         maxTime=0;
         fOpen.seek(3200);
-        read>>bhTemp;
+        read>>bhTemp;   //这个无所谓改不改
         fOpen.seek(headNum);
-        read>>thTemp;
+        /// read>>thTemp;
+        read.readRawData((char *)&thTemp,240); //! 以little读进来
+        thTemp.swap_header();  /// 默认是big，所以需要转换
         count=(fOpen.size()-headNum)/(240+thTemp.ns*sizeof(float));  //取得道数
         maxTime=bhTemp.hns*bhTemp.hdt/1000;
         traceLength=240+thTemp.ns*sizeof(float);
 
+        qDebug()<<thTemp.ns<<thTemp.dt;
         //    qDebug()<<maxTime<<count<<traceLength;
         if(bhTemp.hns==0 || bhTemp.hdt==0)
         {
@@ -248,7 +258,8 @@ void MainWindow::setData()
             read.setByteOrder(QJDDataStream::LittleEndian);
             fOpen.seek(3200);
             read>>bhTemp;   //400
-            read>>thTemp;    //240
+            /// read>>thTemp;    //240
+            read.readRawData((char *)&thTemp,240); //! 以little读进来
             count=(fOpen.size()-headNum)/(240+thTemp.ns*sizeof(float));  //取得道数
             maxTime=thTemp.ns*thTemp.dt/1000;
             traceLength=240+thTemp.ns*sizeof(float);
@@ -273,7 +284,7 @@ void MainWindow::setData()
             if(bhTemp.format==5)
                 ui->radioOriginalIEEE->setChecked(1);
         }
-
+        qDebug()<<thTemp.ns<<thTemp.dt;
 
         //使输出保持一致
         if(groupOriginalFormat.checkedButton()==ui->radioOriginalIEEE)
@@ -1428,12 +1439,24 @@ void  MainWindow::convert2SU()
     int j;
     for(j=0;j<count;j++)
     {
-        read>>th;       //将开头第一个的240赋给th，这样就可用ns,dt;
-        write<<th;
+        /// read>>th;       //将开头第一个的240赋给th，这样就可用ns,dt;
+        read.readRawData((char *)&th,240);   /// 需要转换吗？请依据界面来
+        if(ui->radioOriginalBigEndian->isChecked()==true)
+        {
+            th.swap_header();
+        }
+        /// write<<th;
+        write.writeRawData((char *)&th,240);
         for(int i=0;i<th.ns;i++)
         {
-            read>>temp;
-            write<<temp;
+            /// read>>temp;
+            read.readRawData((char *)&temp,4);   /// 需要转换吗？请依据界面来
+            if(ui->radioOriginalBigEndian->isChecked()==true)
+            {
+                QJD::qjdswap_float_4(&temp);
+            }
+            /// write<<temp;
+            write.writeRawData((char *)&temp,4);
         }
         progress.setValue(j);
         if (progress.wasCanceled())
