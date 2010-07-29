@@ -191,7 +191,7 @@ void MainWindow::setData()
             read.setByteOrder(QJDDataStream::LittleEndian); //BigEndian不对，换一种格式预读
             /// read>>thTemp;
             read.readRawData((char *)&thTemp,240);  /// 这个肯定是little的,需要转换
-//            thTemp.swap_header();  /// 如果不是big则不需要转换
+            //            thTemp.swap_header();  /// 如果不是big则不需要转换
 
             count=fOpen.size()/(240+thTemp.ns*sizeof(float));
             traceLength=240+thTemp.ns*sizeof(float);
@@ -1449,7 +1449,7 @@ void  MainWindow::convert2SU()
             th.swap_header();
         }
         saveNS=th.ns;
-//        qDebug()<<th.ns;
+        //        qDebug()<<th.ns;
         if(ui->radioOriginalIBM->isChecked()==true && ui->radioIEEE->isChecked()==true)
         {
             QJD::qjdibm2ieee((int *)&th.cx,(int *)&th.cx,1,1);
@@ -1889,20 +1889,20 @@ void MainWindow::convertStandard()
                         }
                         /// write<<th;
                         if(ui->radioOriginalIBM->isChecked()==true && ui->radioIEEE->isChecked()==true)
-                         {
-                             QJD::qjdibm2ieee((int *)&th.cx,(int *)&th.cx,1,1);
-                             QJD::qjdibm2ieee((int *)&th.cy,(int *)&th.cy,1,1);
-                         }
-                         if(ui->radioOriginalIEEE->isChecked()==true && ui->radioIBM->isChecked()==true)
-                         {
-                             QJD::qjdieee2ibm((int *)&th.cx,(int *)&th.cx,1,1);
-                             QJD::qjdieee2ibm((int *)&th.cy,(int *)&th.cy,1,1);
-                         }
-                         if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
-                         {
-                             th.swap_header();
-                         }
-                         write.writeRawData((char *)&th,240);
+                        {
+                            QJD::qjdibm2ieee((int *)&th.cx,(int *)&th.cx,1,1);
+                            QJD::qjdibm2ieee((int *)&th.cy,(int *)&th.cy,1,1);
+                        }
+                        if(ui->radioOriginalIEEE->isChecked()==true && ui->radioIBM->isChecked()==true)
+                        {
+                            QJD::qjdieee2ibm((int *)&th.cx,(int *)&th.cx,1,1);
+                            QJD::qjdieee2ibm((int *)&th.cy,(int *)&th.cy,1,1);
+                        }
+                        if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
+                        {
+                            th.swap_header();
+                        }
+                        write.writeRawData((char *)&th,240);
                     }
 
                     if(flagResample==false)
@@ -1942,24 +1942,24 @@ void MainWindow::convertStandard()
                             {
                                 /// read>>temp;
                                 read.readRawData((char *)&temp,4);
-                                 if(ui->radioOriginalBigEndian->isChecked()==true)
-                                 {
-                                     QJD::qjdswap_float_4(&temp);
-                                 }
-                                 /// write<<temp;
-                                 if(ui->radioOriginalIBM->isChecked()==true && ui->radioIEEE->isChecked()==true)
-                                 {
-                                     QJD::qjdibm2ieee((int *)&temp,(int *)&temp,1,1);
-                                 }
-                                 if(ui->radioOriginalIEEE->isChecked()==true && ui->radioIBM->isChecked()==true)
-                                 {
-                                     QJD::qjdieee2ibm((int *)&temp,(int *)&temp,1,1);
-                                 }
-                                 if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
-                                 {
-                                     QJD::qjdswap_float_4(&temp);
-                                 }
-                                 write.writeRawData((char *)&temp,4);
+                                if(ui->radioOriginalBigEndian->isChecked()==true)
+                                {
+                                    QJD::qjdswap_float_4(&temp);
+                                }
+                                /// write<<temp;
+                                if(ui->radioOriginalIBM->isChecked()==true && ui->radioIEEE->isChecked()==true)
+                                {
+                                    QJD::qjdibm2ieee((int *)&temp,(int *)&temp,1,1);
+                                }
+                                if(ui->radioOriginalIEEE->isChecked()==true && ui->radioIBM->isChecked()==true)
+                                {
+                                    QJD::qjdieee2ibm((int *)&temp,(int *)&temp,1,1);
+                                }
+                                if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
+                                {
+                                    QJD::qjdswap_float_4(&temp);
+                                }
+                                write.writeRawData((char *)&temp,4);
                                 for(int c=0;c<skipNum;c++)      //略过指定数量的数据
                                 {
                                     read.readRawData((char *)&skipNum,4);
@@ -3347,7 +3347,7 @@ void MainWindow::convertNonStandard()
 
                                     for(int c=0;c<skipNum;c++)      //略过指定数量的数据
                                     {
-                                       /// read>>skipTemp;
+                                        /// read>>skipTemp;
                                         read.readRawData((char *)&skipTemp,4);
                                     }
                                 }
@@ -3548,24 +3548,24 @@ void MainWindow::convertNonStandard()
                         {
                             /// read>>temp;
                             read.readRawData((char *)&temp,4);
-                             if(ui->radioOriginalBigEndian->isChecked()==true)
-                             {
-                                 QJD::qjdswap_float_4(&temp);
-                             }
+                            if(ui->radioOriginalBigEndian->isChecked()==true)
+                            {
+                                QJD::qjdswap_float_4(&temp);
+                            }
                             /// write<<temp;
-                             if(ui->radioOriginalIBM->isChecked()==true && ui->radioIEEE->isChecked()==true)
-                             {
-                                 QJD::qjdibm2ieee((int *)&temp,(int *)&temp,1,1);
-                             }
-                             if(ui->radioOriginalIEEE->isChecked()==true && ui->radioIBM->isChecked()==true)
-                             {
-                                 QJD::qjdieee2ibm((int *)&temp,(int *)&temp,1,1);
-                             }
-                             if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
-                             {
-                                 QJD::qjdswap_float_4(&temp);
-                             }
-                             write.writeRawData((char *)&temp,4);
+                            if(ui->radioOriginalIBM->isChecked()==true && ui->radioIEEE->isChecked()==true)
+                            {
+                                QJD::qjdibm2ieee((int *)&temp,(int *)&temp,1,1);
+                            }
+                            if(ui->radioOriginalIEEE->isChecked()==true && ui->radioIBM->isChecked()==true)
+                            {
+                                QJD::qjdieee2ibm((int *)&temp,(int *)&temp,1,1);
+                            }
+                            if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
+                            {
+                                QJD::qjdswap_float_4(&temp);
+                            }
+                            write.writeRawData((char *)&temp,4);
 
                             for(int c=0;c<skipNum;c++)      //略过指定数量的数据
                             {
@@ -3589,24 +3589,24 @@ void MainWindow::convertNonStandard()
                                 {
                                     /// read>>temp;
                                     read.readRawData((char *)&temp,4);
-                                     if(ui->radioOriginalBigEndian->isChecked()==true)
-                                     {
-                                         QJD::qjdswap_float_4(&temp);
-                                     }
+                                    if(ui->radioOriginalBigEndian->isChecked()==true)
+                                    {
+                                        QJD::qjdswap_float_4(&temp);
+                                    }
                                     /// write<<temp;
-                                     if(ui->radioOriginalIBM->isChecked()==true && ui->radioIEEE->isChecked()==true)
-                                     {
-                                         QJD::qjdibm2ieee((int *)&temp,(int *)&temp,1,1);
-                                     }
-                                     if(ui->radioOriginalIEEE->isChecked()==true && ui->radioIBM->isChecked()==true)
-                                     {
-                                         QJD::qjdieee2ibm((int *)&temp,(int *)&temp,1,1);
-                                     }
-                                     if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
-                                     {
-                                         QJD::qjdswap_float_4(&temp);
-                                     }
-                                     write.writeRawData((char *)&temp,4);
+                                    if(ui->radioOriginalIBM->isChecked()==true && ui->radioIEEE->isChecked()==true)
+                                    {
+                                        QJD::qjdibm2ieee((int *)&temp,(int *)&temp,1,1);
+                                    }
+                                    if(ui->radioOriginalIEEE->isChecked()==true && ui->radioIBM->isChecked()==true)
+                                    {
+                                        QJD::qjdieee2ibm((int *)&temp,(int *)&temp,1,1);
+                                    }
+                                    if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
+                                    {
+                                        QJD::qjdswap_float_4(&temp);
+                                    }
+                                    write.writeRawData((char *)&temp,4);
                                 }
                             }
                             if(flagResampleChange==true)        //非常特殊的情况
@@ -3704,7 +3704,7 @@ void MainWindow::convertTraceScope()
                     saveNS=th.ns;
                     saveDT=th.dt;
                 }
-               /// write<<th;
+                /// write<<th;
                 if(ui->radioOriginalIBM->isChecked()==true && ui->radioIEEE->isChecked()==true)
                 {
                     QJD::qjdibm2ieee((int *)&th.cx,(int *)&th.cx,1,1);
@@ -4353,10 +4353,10 @@ void MainWindow::convertSkipTrace()
     {
         /// read>>bh;
         read.readRawData((char *)&bh,400);
-         if(ui->radioOriginalBigEndian->isChecked()==true)
-         {
-             bh.swap_header();
-         }
+        if(ui->radioOriginalBigEndian->isChecked()==true)
+        {
+            bh.swap_header();
+        }
 
         if(ui->radioIBM->isChecked())
             bh.format=1;
@@ -4817,7 +4817,7 @@ void MainWindow::read3200()
     }
 }
 
-//400
+//400 修改之后有大问题,不修改为妙
 void MainWindow::read400()
 {
     if(isSegy==true)
@@ -4878,3 +4878,82 @@ void MainWindow::read400()
         fOpen.seek(headNum);      //转移到道头准备转换
     }
 }
+
+//void MainWindow::read400se()
+//{
+//    if(isSegy==true)
+//    {
+//        /// read>>bh;
+//        read.readRawData((char *)&bh,400);  /// bh
+//        if(ui->radioOriginalBigEndian->isChecked()==true)
+//        {
+//            bh.swap_header();
+//        }
+//        qDebug()<<bh.hns<<bh.hdt<<"bh~~~~";
+//        if(flagResample==true)
+//        {
+//            if(flagBHis0==false)
+//            {
+//                oriDt=bhTemp.hdt;
+//                oriNs=bhTemp.hns;
+//                qDebug()<<bhTemp.hdt<<bhTemp.hns<<"bhtemp~~~~";
+//            }
+//            else if(flagBHis0==true)
+//            {
+//                oriDt=thTemp.dt;
+//                oriNs=thTemp.ns;
+//                qDebug()<<thTemp.dt<<thTemp.ns<<"thtemp~~~";
+//            }
+//            nowNs=oriDt*oriNs/nowDt;
+//            qDebug()<<nowDt<<nowNs<<"now";
+//            bh.hdt=nowDt;       //将改动信息写入文件
+//            bh.hns=nowNs;
+//            if(flagAcResample==true)             //2.精确采样情况下重新写入信息
+//            {
+//                //现在的个数＊以前的采样间隔/现在的采样间隔
+//                newTraceNum=newTraceNum*oriDt/nowDt;
+//                bh.hns=newTraceNum;       /// bh也要写入，否则trace display无法正确显示
+//            }
+//            if(flagResampleChange==true)      //3.单纯和精确重采样结合情况下写入信息
+//            {
+//                bh.hns=allPointNum;
+//            }
+//        }
+//        if(ui->radioIBM->isChecked())
+//            bh.format=1;
+//        else if(ui->radioIEEE->isChecked())
+//            bh.format=5;
+//        if(flagSU==false)
+//        {
+//            /// write<<bh;
+//            if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
+//            {
+//                bh.swap_header();
+//            }
+//            write.writeRawData((char *)&bh,400);
+//        }
+//    }
+//    if(isSu==true)
+//    {
+//        bhTemp.hns=thTemp.ns;
+//        bhTemp.hdt=thTemp.dt;
+//        if(groupFormat.checkedButton()==ui->radioIEEE)      //设置目标文件的格式,可以一次性统一设好
+//        {
+//            bhTemp.format=5;
+//        }
+//        if(groupFormat.checkedButton()==ui->radioIBM)
+//        {
+//            bhTemp.format=1;
+//        }
+//        if(flagSU==false)
+//        {
+//            /// write<<bhTemp;
+//            if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
+//            {
+//                bh.swap_header();
+//            }
+//            write.writeRawData((char *)&bh,400);
+//        }
+//        fOpen.seek(headNum);      //转移到道头准备转换
+//    }
+//}
