@@ -1522,30 +1522,34 @@ void MainWindow::convert2SEGY()
             bhTemp.format=1;
         }
 
-        if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
-        {
-            bhTemp.swap_header();
-        }
-        write.writeRawData((char *)&bhTemp,400);   /// bh
+        write<<bh;
+//        if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
+//        {
+//            bhTemp.swap_header();
+//        }
+//        write.writeRawData((char *)&bhTemp,400);   /// bh
         fOpen.seek(0);      //转移到道头准备转换
     }
     if(isSegy==true)
     {
         read3200();
-        read.readRawData((char *)&bh,400);  /// bh
-        if(ui->radioOriginalBigEndian->isChecked()==true)
-        {
-            bh.swap_header();
-        }
+        read>>bh;
+//        read.readRawData((char *)&bh,400);  /// bh
+//        if(ui->radioOriginalBigEndian->isChecked()==true)
+//        {
+//            bh.swap_header();
+//        }
         if(ui->radioIBM->isChecked())
             bh.format=1;
         else if(ui->radioIEEE->isChecked())
             bh.format=5;
-        if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
-        {
-            bh.swap_header();
-        }
-        write.writeRawData((char *)&bh,400);
+
+        write<<bh;
+//        if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
+//        {
+//            bh.swap_header();
+//        }
+//        write.writeRawData((char *)&bh,400);
     }
     int z;
     float temp;
@@ -4351,12 +4355,12 @@ void MainWindow::convertSkipTrace()
     //400
     if(isSegy==true)
     {
-        /// read>>bh;
-        read.readRawData((char *)&bh,400);
-        if(ui->radioOriginalBigEndian->isChecked()==true)
-        {
-            bh.swap_header();
-        }
+         read>>bh;
+//        read.readRawData((char *)&bh,400);
+//        if(ui->radioOriginalBigEndian->isChecked()==true)
+//        {
+//            bh.swap_header();
+//        }
 
         if(ui->radioIBM->isChecked())
             bh.format=1;
@@ -4364,12 +4368,12 @@ void MainWindow::convertSkipTrace()
             bh.format=5;
         if(flagSU==false)
         {
-            /// write<<bh;
-            if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
-            {
-                bh.swap_header();
-            }
-            write.writeRawData((char *)&bh,400);
+             write<<bh;
+//            if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
+//            {
+//                bh.swap_header();
+//            }
+//            write.writeRawData((char *)&bh,400);
         }
         qDebug()<<bh.hns<<bh.hdt;
     }
@@ -4387,12 +4391,12 @@ void MainWindow::convertSkipTrace()
         }
         if(flagSU==false)
         {
-            /// write<<bhTemp;
-            if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
-            {
-                bhTemp.swap_header();
-            }
-            write.writeRawData((char *)&bhTemp,400);
+             write<<bhTemp;
+//            if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
+//            {
+//                bhTemp.swap_header();
+//            }
+//            write.writeRawData((char *)&bhTemp,400);
         }
         fOpen.seek(headNum);      //转移到道头准备转换
     }
