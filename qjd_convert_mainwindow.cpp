@@ -1611,7 +1611,6 @@ void MainWindow::convert2SEGY()
             QMessageBox::warning(this,"Abort","Format has been terminated !");
             break;
         }
-
     }
     if(z==count)
     {

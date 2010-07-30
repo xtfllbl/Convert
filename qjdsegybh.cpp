@@ -100,37 +100,37 @@ QJDDataStream & operator>> ( QJDDataStream & ds, QJDSegyBH &s)
     return ds;
 }
 
-void QJDSegyBH::swap_header()
-{
-        QJD::qjdswap_int_4(&jobid);
-        QJD::qjdswap_int_4(&lino);
-        QJD::qjdswap_int_4(&reno);
-        QJD::qjdswap_short_2(&ntrpr);
-        QJD::qjdswap_short_2(&nart);
-        QJD::qjdswap_u_short_2(&hdt);
-        QJD::qjdswap_u_short_2(&dto);
-        QJD::qjdswap_u_short_2(&hns);
-        QJD::qjdswap_u_short_2(&nso);
-        QJD::qjdswap_short_2(&format);
-        QJD::qjdswap_short_2(&fold);
-        QJD::qjdswap_short_2(&tsort);
-        QJD::qjdswap_short_2(&vscode);
-        QJD::qjdswap_short_2(&hsfs);
-        QJD::qjdswap_short_2(&hsfe);
-        QJD::qjdswap_short_2(&hslen);
-        QJD::qjdswap_short_2(&hstyp);
-        QJD::qjdswap_short_2(&schn);
-        QJD::qjdswap_short_2(&hstas);
-        QJD::qjdswap_short_2(&hstae);
-        QJD::qjdswap_short_2(&htatyp);
-        QJD::qjdswap_short_2(&hcorr);
-        QJD::qjdswap_short_2(&bgrcv);
-        QJD::qjdswap_short_2(&rcvm);
-        QJD::qjdswap_short_2(&mfeet);
-        QJD::qjdswap_short_2(&polyt);
-        QJD::qjdswap_short_2(&vpol);
+//void QJDSegyBH::swap_header()
+//{
+//        QJD::qjdswap_int_4(&jobid);
+//        QJD::qjdswap_int_4(&lino);
+//        QJD::qjdswap_int_4(&reno);
+//        QJD::qjdswap_short_2(&ntrpr);
+//        QJD::qjdswap_short_2(&nart);
+//        QJD::qjdswap_u_short_2(&hdt);
+//        QJD::qjdswap_u_short_2(&dto);
+//        QJD::qjdswap_u_short_2(&hns);
+//        QJD::qjdswap_u_short_2(&nso);
+//        QJD::qjdswap_short_2(&format);
+//        QJD::qjdswap_short_2(&fold);
+//        QJD::qjdswap_short_2(&tsort);
+//        QJD::qjdswap_short_2(&vscode);
+//        QJD::qjdswap_short_2(&hsfs);
+//        QJD::qjdswap_short_2(&hsfe);
+//        QJD::qjdswap_short_2(&hslen);
+//        QJD::qjdswap_short_2(&hstyp);
+//        QJD::qjdswap_short_2(&schn);
+//        QJD::qjdswap_short_2(&hstas);
+//        QJD::qjdswap_short_2(&hstae);
+//        QJD::qjdswap_short_2(&htatyp);
+//        QJD::qjdswap_short_2(&hcorr);
+//        QJD::qjdswap_short_2(&bgrcv);
+//        QJD::qjdswap_short_2(&rcvm);
+//        QJD::qjdswap_short_2(&mfeet);
+//        QJD::qjdswap_short_2(&polyt);
+//        QJD::qjdswap_short_2(&vpol);
 
-}
+//}
 /*QTextStream  & operator<< ( QTextStream & ts, const QJDSegyBH &s)
 {
         ts<<" jobid"<<s.jobID
