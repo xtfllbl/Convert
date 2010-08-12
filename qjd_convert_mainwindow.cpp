@@ -6,7 +6,7 @@
 #include <QMap>
 #include <QDesktopWidget>
 #include <math.h>
-
+/// TODO: 需要一个全新的dataIN ,dataOUT,最好是一个底层模块接口，然后通过批处理来完成
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -4960,3 +4960,5 @@ void MainWindow::read400()
 //        fOpen.seek(headNum);      //转移到道头准备转换
 //    }
 //}
+
+

@@ -19,6 +19,8 @@ protected:
 
 private:
     Ui::Help *ui;
+
+private slots:
 };
 
 #endif // HELP_H
