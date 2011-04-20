@@ -23,5 +23,9 @@ SOURCES += qjd_convert_help.cpp \
            qjdsegyth.cpp \
            qjdtraceheader.cpp \
     qjd.cpp
-RESOURCES += image.qrc
+RESOURCES += image.qrc \
+    styles.qrc
 TRANSLATIONS += convert_en.ts convert_zh.ts
+
+OTHER_FILES += \
+    styles/stylesheet.qss

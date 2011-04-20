@@ -7,6 +7,7 @@
 #include <QDesktopWidget>
 #include <math.h>
 /// TODO: 需要一个全新的dataIN ,dataOUT,最好是一个底层模块接口，然后通过批处理来完成
+// 完全重写，需要对数据传输有重新认识
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -87,6 +88,12 @@ MainWindow::MainWindow(QWidget *parent)
     isSegy=false;
     isSu=false;
     headNum=0;      //su是0，segy是3600
+
+    QFile file(":/styles/stylesheet.qss");
+    file.open(QIODevice::ReadOnly);
+    QTextStream in(&file);
+    QString s = in.readAll();
+    this->setStyleSheet(s);
 }
 
 MainWindow::~MainWindow()
@@ -253,8 +260,9 @@ void MainWindow::setData()
         {
             flagTHis0=true;
         }
-        if(bhTemp.hns>10000 || bhTemp.format>10)
+        if(bhTemp.hns>30000 || bhTemp.format>10)  //判断非正常的尺度，尺度有时可能需要调整
         {
+            qDebug()<<"excute abnormal process";
             read.setByteOrder(QJDDataStream::LittleEndian);
             fOpen.seek(3200);
             read>>bhTemp;   //400
@@ -271,6 +279,7 @@ void MainWindow::setData()
                 ui->radioOriginalIEEE->setChecked(1);
                 a.exec();
             }
+            qDebug()<<bhTemp.format<<bhTemp.hns<<bhTemp.hdt;
             if(bhTemp.format==1)
                 ui->radioOriginalIBM->setChecked(1);
             if(bhTemp.format==5)
@@ -1523,33 +1532,21 @@ void MainWindow::convert2SEGY()
         }
 
         write<<bh;
-//        if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
-//        {
-//            bhTemp.swap_header();
-//        }
-//        write.writeRawData((char *)&bhTemp,400);   /// bh
+
         fOpen.seek(0);      //转移到道头准备转换
     }
     if(isSegy==true)
     {
         read3200();
         read>>bh;
-//        read.readRawData((char *)&bh,400);  /// bh
-//        if(ui->radioOriginalBigEndian->isChecked()==true)
-//        {
-//            bh.swap_header();
-//        }
+
         if(ui->radioIBM->isChecked())
             bh.format=1;
         else if(ui->radioIEEE->isChecked())
             bh.format=5;
 
         write<<bh;
-//        if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
-//        {
-//            bh.swap_header();
-//        }
-//        write.writeRawData((char *)&bh,400);
+
     }
     int z;
     float temp;
@@ -4881,84 +4878,3 @@ void MainWindow::read400()
         fOpen.seek(headNum);      //转移到道头准备转换
     }
 }
-
-//void MainWindow::read400se()
-//{
-//    if(isSegy==true)
-//    {
-//        /// read>>bh;
-//        read.readRawData((char *)&bh,400);  /// bh
-//        if(ui->radioOriginalBigEndian->isChecked()==true)
-//        {
-//            bh.swap_header();
-//        }
-//        qDebug()<<bh.hns<<bh.hdt<<"bh~~~~";
-//        if(flagResample==true)
-//        {
-//            if(flagBHis0==false)
-//            {
-//                oriDt=bhTemp.hdt;
-//                oriNs=bhTemp.hns;
-//                qDebug()<<bhTemp.hdt<<bhTemp.hns<<"bhtemp~~~~";
-//            }
-//            else if(flagBHis0==true)
-//            {
-//                oriDt=thTemp.dt;
-//                oriNs=thTemp.ns;
-//                qDebug()<<thTemp.dt<<thTemp.ns<<"thtemp~~~";
-//            }
-//            nowNs=oriDt*oriNs/nowDt;
-//            qDebug()<<nowDt<<nowNs<<"now";
-//            bh.hdt=nowDt;       //将改动信息写入文件
-//            bh.hns=nowNs;
-//            if(flagAcResample==true)             //2.精确采样情况下重新写入信息
-//            {
-//                //现在的个数＊以前的采样间隔/现在的采样间隔
-//                newTraceNum=newTraceNum*oriDt/nowDt;
-//                bh.hns=newTraceNum;       /// bh也要写入，否则trace display无法正确显示
-//            }
-//            if(flagResampleChange==true)      //3.单纯和精确重采样结合情况下写入信息
-//            {
-//                bh.hns=allPointNum;
-//            }
-//        }
-//        if(ui->radioIBM->isChecked())
-//            bh.format=1;
-//        else if(ui->radioIEEE->isChecked())
-//            bh.format=5;
-//        if(flagSU==false)
-//        {
-//            /// write<<bh;
-//            if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
-//            {
-//                bh.swap_header();
-//            }
-//            write.writeRawData((char *)&bh,400);
-//        }
-//    }
-//    if(isSu==true)
-//    {
-//        bhTemp.hns=thTemp.ns;
-//        bhTemp.hdt=thTemp.dt;
-//        if(groupFormat.checkedButton()==ui->radioIEEE)      //设置目标文件的格式,可以一次性统一设好
-//        {
-//            bhTemp.format=5;
-//        }
-//        if(groupFormat.checkedButton()==ui->radioIBM)
-//        {
-//            bhTemp.format=1;
-//        }
-//        if(flagSU==false)
-//        {
-//            /// write<<bhTemp;
-//            if(ui->radioBigEndian->isChecked()==true && ui->radioOriginalLittleEndian->isChecked()==true)
-//            {
-//                bh.swap_header();
-//            }
-//            write.writeRawData((char *)&bh,400);
-//        }
-//        fOpen.seek(headNum);      //转移到道头准备转换
-//    }
-//}
-
-
